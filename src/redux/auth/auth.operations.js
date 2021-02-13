@@ -20,7 +20,7 @@ const userSignUp = ({ credential }) => dispatch => {
 	dispatch(authActions.userSignUpRequest());
 
 	axios
-		.post('/api/auth/register', credential)
+		.post('/api/auth/sign-up', credential)
 		.then(({ data }) => {
 			token.set(data.token);
 			dispatch(authActions.userSignUpSuccess(data));
@@ -32,7 +32,7 @@ const userSignIn = credential => dispatch => {
 	dispatch(authActions.userSignInRequest());
 
 	axios
-		.post('/api/auth/login', credential)
+		.post('/api/auth/sign-in', credential)
 		.then(({ data }) => {
 			token.set(data.token);
 			dispatch(authActions.userSignInSuccess(data));
@@ -44,7 +44,7 @@ const userSighOut = () => dispatch => {
 	dispatch(authActions.userSighOutRequest());
 
 	axios
-		.post('/api/auth/logout')
+		.delete('/api/auth/sign-out')
 		.then(() => {
 			token.unset();
 			dispatch(authActions.userSighOutSuccess());
@@ -67,14 +67,11 @@ const getCurrentUser = () => (dispatch, getState) => {
 		.catch(error => dispatch(authActions.getCurrentUserFailure(error)));
 };
 
-const unsetErrorMessage = () => dispatch => dispatch(authActions.unsetErrorMessage());
-
 const authOperations = {
 	userSignUp,
 	userSignIn,
 	userSighOut,
 	getCurrentUser,
-	unsetErrorMessage,
 };
 
 export default authOperations;
