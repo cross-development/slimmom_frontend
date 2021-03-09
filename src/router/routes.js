@@ -12,22 +12,22 @@ const routes = [
 		component: lazy(() => import('pages/HomePage' /* webpackChunkName: "home-page" */)),
 	},
 	{
-		path: '/register',
+		path: '/sign-up',
 		label: 'Регистрация',
 		exact: true,
 		private: false,
 		restricted: true,
 		isNavigate: false,
-		component: lazy(() => import('pages/RegisterPage' /* webpackChunkName: "register-page"*/)),
+		component: lazy(() => import('pages/SignUpPage' /* webpackChunkName: "sign-up-page"*/)),
 	},
 	{
-		path: '/login',
+		path: '/sign-in',
 		label: 'Вход',
 		exact: true,
 		private: false,
 		restricted: true,
 		isNavigate: false,
-		component: lazy(() => import('pages/LoginPage' /* webpackChunkName: "login-page"*/)),
+		component: lazy(() => import('pages/SignInPage' /* webpackChunkName: "sign-in-page"*/)),
 	},
 ];
 

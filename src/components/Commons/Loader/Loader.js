@@ -4,14 +4,7 @@ import PropTypes from 'prop-types';
 //Additional components
 import BeatLoader from 'react-spinners/BeatLoader';
 //Styles
-import { LoaderWrapperDiv } from './Loader.styles';
-import { css } from '@emotion/core';
-
-//Custom css
-const beatCss = css`
-	display: block;
-	margin: calc(100vh * 0.4) auto;
-`;
+import { LoaderWrapperDiv, beatCss } from './Loader.styles';
 
 const Loader = ({ onLoad }) => (
 	<LoaderWrapperDiv>
