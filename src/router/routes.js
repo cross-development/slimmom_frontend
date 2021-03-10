@@ -29,6 +29,24 @@ const routes = [
 		isNavigate: false,
 		component: lazy(() => import('pages/SignInPage' /* webpackChunkName: "sign-in-page"*/)),
 	},
+	{
+		path: '/diary',
+		label: 'Дневник',
+		exact: true,
+		private: true,
+		restricted: false,
+		isNavigate: true,
+		component: lazy(() => import('pages/DiaryPage' /* webpackChunkName: "diary-page"*/)),
+	},
+	{
+		path: '/calculator',
+		label: 'Калькулятор',
+		exact: true,
+		private: true,
+		restricted: false,
+		isNavigate: true,
+		component: lazy(() => import('pages/CalculatorPage' /* webpackChunkName: "calc-page"*/)),
+	},
 ];
 
 export default routes;
