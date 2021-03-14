@@ -6,8 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 //Styles
-import { StyledH1, StyledSpan } from './SignIn.styles';
-import { StylesForm, StyledLabel, StyledInput, StyledButton } from './SignIn.styles';
+import { Heading, Form, Label, Input, BtnGroup, Button, SignUpLink } from './SignIn.styles';
 
 const schema = yup.object().shape({
 	email: yup.string().email('Invalid email').required('Required'),
@@ -20,25 +19,24 @@ const SignIn = ({ onSubmit }) => {
 	});
 
 	return (
-		<StylesForm onSubmit={handleSubmit(onSubmit)}>
-			<StyledH1>
-				<StyledSpan>Sing in</StyledSpan>
-			</StyledH1>
+		<Form onSubmit={handleSubmit(onSubmit)}>
+			<Heading>Вход</Heading>
 
-			<StyledLabel>
-				Email
-				<StyledInput type="email" name="email" autoComplete="off" ref={register} />
+			<Label>
+				<Input type="email" name="email" autoComplete="off" ref={register} placeholder="Email *" />
 				{errors.email && <span>{errors.email.message}</span>}
-			</StyledLabel>
+			</Label>
 
-			<StyledLabel>
-				Password
-				<StyledInput type="password" name="password" autoComplete="off" ref={register} />
+			<Label>
+				<Input type="password" name="password" ref={register} placeholder="Пароль *" />
 				{errors.password && <span>{errors.password.message}</span>}
-			</StyledLabel>
+			</Label>
 
-			<StyledButton type="submit">Log in</StyledButton>
-		</StylesForm>
+			<BtnGroup>
+				<Button type="submit">Вход</Button>
+				<SignUpLink to="/sign-up">Регистрация</SignUpLink>
+			</BtnGroup>
+		</Form>
 	);
 };
 

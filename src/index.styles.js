@@ -8,17 +8,18 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: 'Roboto', 'Ubuntu', sans-serif;
+        font-family: 'Tahoma', 'Roboto', sans-serif;
     }
 
     body {
         width: 100%;
+        min-height: 100vh;
     }
 
     input {
         &::placeholder {
             font: inherit;
-            color: #b8bfc4;
+            color: #9B9FAA;
         }
 
         &::-webkit-input-placeholder {
@@ -61,6 +62,22 @@ const GlobalStyle = createGlobalStyle`
             transition: opacity 0.3s ease;
         }
     }
+
+    a {
+        text-decoration: none;
+    }
 `;
+
+export const size = {
+	mobile: '320px',
+	tablet: '768px',
+	desktop: '1280px',
+};
+
+export const device = {
+	mobile: `screen and (min-width: ${size.mobile})`,
+	tablet: `screen and (min-width: ${size.tablet})`,
+	desktop: `screen and (min-width: ${size.desktop})`,
+};
 
 export default GlobalStyle;

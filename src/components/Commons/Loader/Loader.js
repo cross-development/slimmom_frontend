@@ -8,7 +8,7 @@ import { LoaderWrapperDiv, beatCss } from './Loader.styles';
 
 const Loader = ({ onLoad }) => (
 	<LoaderWrapperDiv>
-		<BeatLoader size={40} color="#4a56e2" loading={onLoad} css={beatCss} />
+		<BeatLoader size={30} color="#FC842D" loading={onLoad} css={beatCss} />
 	</LoaderWrapperDiv>
 );
 

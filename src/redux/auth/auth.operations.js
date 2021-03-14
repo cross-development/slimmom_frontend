@@ -16,11 +16,11 @@ const token = {
 	},
 };
 
-const userSignUp = ({ credential }) => dispatch => {
+const userSignUp = ({ username, email, password }) => dispatch => {
 	dispatch(authActions.userSignUpRequest());
 
 	axios
-		.post('/api/auth/sign-up', credential)
+		.post('/api/auth/sign-up', { username, email, password })
 		.then(({ data }) => {
 			token.set(data.token);
 			dispatch(authActions.userSignUpSuccess(data));
@@ -28,11 +28,11 @@ const userSignUp = ({ credential }) => dispatch => {
 		.catch(error => dispatch(authActions.userSignUpFailure(error)));
 };
 
-const userSignIn = credential => dispatch => {
+const userSignIn = ({ email, password }) => dispatch => {
 	dispatch(authActions.userSignInRequest());
 
 	axios
-		.post('/api/auth/sign-in', credential)
+		.post('/api/auth/sign-in', { email, password })
 		.then(({ data }) => {
 			token.set(data.token);
 			dispatch(authActions.userSignInSuccess(data));

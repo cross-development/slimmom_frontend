@@ -2,10 +2,10 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 //Redux
-import { useSelector } from 'react-redux';
+import { useGetUser } from 'redux/auth/auth.hooks';
 
 const PrivateRoute = ({ component: Component, ...routeProps }) => {
-	const { user } = useSelector(state => state.auth);
+	const { user } = useGetUser();
 
 	return (
 		<Route

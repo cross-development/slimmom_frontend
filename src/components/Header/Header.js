@@ -1,23 +1,27 @@
 //Core
-import React from 'react'
-import PropTypes from 'prop-types';
+import React from 'react';
 //Components
 import Logo from './Logo';
-import UserInfo from './UserInfo'
-import Navigation from './Navigation'
+import UserInfo from './UserInfo';
+import AuthInfo from './AuthInfo';
+import Navigation from './Navigation';
+//Redux
+import { useGetUser } from 'redux/auth/auth.hooks';
 //Styles
-import {} from './Header.styles'
+import { HeaderWrap } from './Header.styles';
 
 const Header = () => {
-    return (
-        <div>
-            Header
-        </div>
-    )
-}
+	const { user } = useGetUser();
 
-Header.propTypes = {
+	return (
+		<HeaderWrap>
+			<Logo />
 
-}
+			{user && <Navigation />}
 
-export default Header
+			{user ? <UserInfo /> : <AuthInfo />}
+		</HeaderWrap>
+	);
+};
+
+export default Header;

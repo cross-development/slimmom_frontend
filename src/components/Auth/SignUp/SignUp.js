@@ -6,8 +6,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 //Styles
-import { StyledH1, StyledSpan } from './SignUp.styles';
-import { StyledForm, StyledLabel, StyledInput, StyledButton } from './SignUp.styles';
+import { Heading, Form, Label, Input, BtnGroup, Button, SignUpLink } from './SignUp.styles';
 
 const schema = yup.object().shape({
 	username: yup.string().min(4, 'Too Short!').max(50, 'Too Long!').required('Required'),
@@ -21,31 +20,29 @@ const SignUp = ({ onSubmit }) => {
 	});
 
 	return (
-		<StyledForm onSubmit={handleSubmit(onSubmit)}>
-			<StyledH1>
-				<StyledSpan>Sign up</StyledSpan>
-			</StyledH1>
+		<Form onSubmit={handleSubmit(onSubmit)}>
+			<Heading>Регистрация</Heading>
 
-			<StyledLabel>
-				Full name
-				<StyledInput required type="text" name="username" autoComplete="off" ref={register} />
+			<Label>
+				<Input type="text" name="username" placeholder="Имя *" autoComplete="off" ref={register} />
 				{errors.username && <span>{errors.username.message}</span>}
-			</StyledLabel>
+			</Label>
 
-			<StyledLabel>
-				Email
-				<StyledInput required type="email" name="email" autoComplete="off" ref={register} />
+			<Label>
+				<Input type="email" name="email" placeholder="Email *" autoComplete="off" ref={register} />
 				{errors.email && <span>{errors.email.message}</span>}
-			</StyledLabel>
+			</Label>
 
-			<StyledLabel>
-				Password
-				<StyledInput required type="password" name="password" autoComplete="off" ref={register} />
+			<Label>
+				<Input type="password" name="password" placeholder="Пароль *" ref={register} />
 				{errors.password && <span>{errors.password.message}</span>}
-			</StyledLabel>
+			</Label>
 
-			<StyledButton type="submit">Sign up</StyledButton>
-		</StyledForm>
+			<BtnGroup>
+				<Button type="submit">Регистрация</Button>
+				<SignUpLink to="/sign-in">Вход</SignUpLink>
+			</BtnGroup>
+		</Form>
 	);
 };
 
