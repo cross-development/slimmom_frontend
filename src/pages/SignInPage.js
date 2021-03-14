@@ -3,18 +3,18 @@ import React from 'react';
 //Components
 import { SignIn } from 'components/Auth';
 //Redux
-import { useUserAction } from 'redux/auth/auth.hooks';
-import authOperations from 'redux/auth/auth.operations';
+import { authHooks } from 'redux/auth';
+import { authOperations } from 'redux/auth';
 
 const SignInPage = () => {
-	const handleSignUp = useUserAction(authOperations.userSignIn);
+	const handleSignUp = authHooks.useUserAction(authOperations.userSignIn);
 
 	const handleSubmit = credentials => handleSignUp({ ...credentials });
 
 	return (
-		<div>
+		<section>
 			<SignIn onSubmit={handleSubmit} />
-		</div>
+		</section>
 	);
 };
 

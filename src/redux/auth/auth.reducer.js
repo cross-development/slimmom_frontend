@@ -2,9 +2,8 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 //Redux
-import authActions from './auth.actions';
+import authActions from './auth.action';
 
-//User reducer
 const user = createReducer(null, {
 	[authActions.getCurrentUserSuccess]: (state, { payload }) => payload,
 	[authActions.userSignUpSuccess]: (state, { payload }) => payload.user,
@@ -12,14 +11,12 @@ const user = createReducer(null, {
 	[authActions.userSighOutSuccess]: () => null,
 });
 
-//Token reducer
 const token = createReducer(null, {
 	[authActions.userSignUpSuccess]: (state, { payload }) => payload.token,
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.token,
 	[authActions.userSighOutSuccess]: () => null,
 });
 
-//Error reducer
 const error = createReducer(null, {
 	[authActions.getCurrentUserFailure]: (state, { payload }) => payload,
 	[authActions.userSignUpFailure]: (state, { payload }) => payload,
@@ -28,7 +25,6 @@ const error = createReducer(null, {
 	[authActions.unsetErrorMessage]: (state, { payload }) => null,
 });
 
-//Loading reducer
 const loading = createReducer(false, {
 	[authActions.getCurrentUserRequest]: () => true,
 	[authActions.getCurrentUserSuccess]: () => false,
@@ -47,9 +43,4 @@ const loading = createReducer(false, {
 	[authActions.userSighOutFailure]: () => false,
 });
 
-export default combineReducers({
-	user,
-	token,
-	error,
-	loading,
-});
+export default combineReducers({ user, token, error, loading });

@@ -6,12 +6,12 @@ import UserInfo from './UserInfo';
 import AuthInfo from './AuthInfo';
 import Navigation from './Navigation';
 //Redux
-import { useGetUser } from 'redux/auth/auth.hooks';
+import { authHooks } from 'redux/auth';
 //Styles
 import { HeaderWrap } from './Header.styles';
 
 const Header = () => {
-	const { user } = useGetUser();
+	const { user } = authHooks.useGetUser();
 
 	return (
 		<HeaderWrap>

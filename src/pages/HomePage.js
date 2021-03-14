@@ -1,18 +1,27 @@
 //Core
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
 //Components
+import { DailyCaloriesForm, DailyCalorieIntake } from 'components/DailyCalories';
+//Redux
+import { dailyHooks } from 'redux/daily';
+import { dailyOperations } from 'redux/daily';
 
 const HomePage = () => {
-    return (
-        <div>
-            HomePage
-        </div>
-    )
-}
+	const { guestRate } = dailyHooks.useDailyRate();
 
-HomePage.propTypes = {
+	const handleGuestDailyRate = dailyHooks.useDailyRateAction(dailyOperations.guestDailyRate);
+	// handleGuestDailyRate({ ...credentials });
+	const handleSubmit = credentials => {
+		console.log(credentials);
+	};
 
-}
+	return (
+		<section>
+			<DailyCaloriesForm onSubmit={handleSubmit} />
 
-export default HomePage
+			{guestRate && <DailyCalorieIntake {...guestRate} />}
+		</section>
+	);
+};
+
+export default HomePage;

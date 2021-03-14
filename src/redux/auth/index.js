@@ -1,2 +1,3 @@
-export { default as authReducers } from './auth.reducers';
-export { default as authOperations } from './auth.operations';
+export { default as authHooks } from './auth.hook';
+export { default as authReducers } from './auth.reducer';
+export { default as authOperations } from './auth.operation';

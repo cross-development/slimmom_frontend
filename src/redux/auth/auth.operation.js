@@ -1,7 +1,7 @@
 //Core
 import axios from 'axios';
 //Redux
-import authActions from './auth.actions';
+import authActions from './auth.action';
 
 //Axios defaults config
 axios.defaults.baseURL = `http://localhost:3001`;

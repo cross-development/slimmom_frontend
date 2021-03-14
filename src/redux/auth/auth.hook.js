@@ -9,4 +9,6 @@ const useGetUser = getConnectedStore('auth');
 const useUserAction = getConnectedActionHook();
 const useUserEmptyAction = getConnectedEmptyActionHook();
 
-export { useGetUser, useUserAction, useUserEmptyAction };
+const authHooks = { useGetUser, useUserAction, useUserEmptyAction };
+
+export default authHooks;

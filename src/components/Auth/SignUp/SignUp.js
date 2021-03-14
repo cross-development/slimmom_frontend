@@ -4,19 +4,14 @@ import PropTypes from 'prop-types';
 //Packages
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
+//Utils
+import { signUpSchema } from 'utils/validationSchemas';
 //Styles
 import { Heading, Form, Label, Input, BtnGroup, Button, SignUpLink } from './SignUp.styles';
 
-const schema = yup.object().shape({
-	username: yup.string().min(4, 'Too Short!').max(50, 'Too Long!').required('Required'),
-	email: yup.string().email('Invalid email').required('Required'),
-	password: yup.string().min(4, 'Too Short!').max(50, 'Too Long!').required('Required'),
-});
-
 const SignUp = ({ onSubmit }) => {
 	const { register, handleSubmit, errors } = useForm({
-		resolver: yupResolver(schema),
+		resolver: yupResolver(signUpSchema),
 	});
 
 	return (
