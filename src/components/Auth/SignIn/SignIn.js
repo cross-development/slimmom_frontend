@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 //Utils
-import { signInSchema } from 'utils/validationSchemas';
+import { signInSchema } from 'helpers/validationSchemas';
 //Styles
 import { Heading, Form, Label, Input, BtnGroup, Button, SignUpLink } from './SignIn.styles';
 

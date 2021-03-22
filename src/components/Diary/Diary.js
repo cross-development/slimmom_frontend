@@ -1,21 +1,25 @@
 //Core
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 //Components
-
+import DiaryDateCalendar from './DiaryDateCalendar';
+import DiaryProductsList from './DiaryProductsList';
+import DiaryAddProductForm from './DiaryAddProductForm';
 //Styles
-import {} from './Diary.styles'
+import {} from './Diary.styles';
 
 const Diary = () => {
-    return (
-        <div>
-            Diary
-        </div>
-    )
-}
+	return (
+		<div>
+			<DiaryDateCalendar />
 
-Diary.propTypes = {
+			<DiaryProductsList />
 
-}
+			<DiaryAddProductForm />
+		</div>
+	);
+};
 
-export default Diary
+Diary.propTypes = {};
+
+export default Diary;

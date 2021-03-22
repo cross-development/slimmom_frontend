@@ -10,10 +10,8 @@ const HomePage = () => {
 	const { guestRate } = dailyHooks.useDailyRate();
 
 	const handleGuestDailyRate = dailyHooks.useDailyRateAction(dailyOperations.guestDailyRate);
-	// handleGuestDailyRate({ ...credentials });
-	const handleSubmit = credentials => {
-		console.log(credentials);
-	};
+
+	const handleSubmit = credentials => handleGuestDailyRate({ ...credentials });
 
 	return (
 		<section>

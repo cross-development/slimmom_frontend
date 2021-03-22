@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 //Utils
-import { dailySchema } from 'utils/validationSchemas';
+import { dailySchema } from 'helpers/validationSchemas';
 //Styles
 import { Heading, Subtitle, Form, Label, Input } from './DailyCaloriesForm.styles';
 import { BtnGroup, Button, RadioGroup, RadioWrap } from './DailyCaloriesForm.styles';

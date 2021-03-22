@@ -1,14 +1,14 @@
 //Core
-import React from 'react'
+import React from 'react';
 //Components
-
+import { CalculatorCaloriesForm } from 'components/Calculator';
 
 const CalculatorPage = () => {
-    return (
-        <div>
-           CalculatorPage 
-        </div>
-    )
-}
+	return (
+		<div>
+			<CalculatorCaloriesForm />
+		</div>
+	);
+};
 
-export default CalculatorPage
+export default CalculatorPage;

@@ -1,14 +1,14 @@
 //Core
-import React from 'react'
+import React from 'react';
 //Components
-
+import Diary from 'components/Diary';
 
 const DiaryPage = () => {
-    return (
-        <div>
-            DiaryPage
-        </div>
-    )
-}
+	return (
+		<div>
+			<Diary />
+		</div>
+	);
+};
 
-export default DiaryPage
+export default DiaryPage;

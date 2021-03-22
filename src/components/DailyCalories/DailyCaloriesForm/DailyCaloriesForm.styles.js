@@ -9,16 +9,15 @@ const Form = styled.form`
 `;
 
 const Heading = styled.h1`
-	color: #fc842d;
+	color: #212121;
 	font-weight: bold;
 	font-size: 18px;
 	line-height: 22px;
 	letter-spacing: 0.04em;
-	text-transform: uppercase;
 
 	margin-bottom: 40px;
 
-	text-align: center;
+	text-align: left;
 `;
 
 const Subtitle = styled.p``;
