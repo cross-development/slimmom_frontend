@@ -1,5 +1,5 @@
 //Core
-import React from 'react';
+import React, { useState } from 'react';
 //Components
 import { DailyCaloriesForm, DailyCalorieIntake } from 'components/DailyCalories';
 //Redux
@@ -8,16 +8,24 @@ import { dailyOperations } from 'redux/daily';
 
 const HomePage = () => {
 	const { guestRate } = dailyHooks.useDailyRate();
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const handleGuestDailyRate = dailyHooks.useDailyRateAction(dailyOperations.guestDailyRate);
 
-	const handleSubmit = credentials => handleGuestDailyRate({ ...credentials });
+	const handleOpenModal = () => setIsModalOpen(prevState => !prevState);
+
+	const handleSubmit = credentials => {
+		handleGuestDailyRate({ ...credentials });
+		handleOpenModal();
+	};
 
 	return (
 		<section>
 			<DailyCaloriesForm onSubmit={handleSubmit} />
 
-			{guestRate && <DailyCalorieIntake {...guestRate} />}
+			{isModalOpen && guestRate && (
+				<DailyCalorieIntake {...guestRate} onCloseModal={handleOpenModal} />
+			)}
 		</section>
 	);
 };

@@ -8,6 +8,7 @@ export const StyledArticle = styled.main`
 	flex-direction: row;
 	align-items: flex-start;
 	justify-content: flex-start;
+	position: relative;
 
 	margin-left: auto;
 	margin-right: auto;

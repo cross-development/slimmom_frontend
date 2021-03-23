@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { device } from 'index.styles';
 
 const Form = styled.form`
-	margin-top: 60px;
-	margin-bottom: 20px;
+	margin-top: 40px;
 `;
 
 const Heading = styled.h1`
@@ -15,12 +14,18 @@ const Heading = styled.h1`
 	line-height: 22px;
 	letter-spacing: 0.04em;
 
-	margin-bottom: 40px;
+	margin-bottom: 30px;
 
 	text-align: left;
 `;
 
-const Subtitle = styled.p``;
+const BloodType = styled.p`
+	color: #9b9faa;
+	font-size: 14px;
+	font-weight: bold;
+	line-height: 17px;
+	letter-spacing: 0.04em;
+`;
 
 const Label = styled.label``;
 
@@ -30,17 +35,29 @@ const Input = styled.input`
 	line-height: 17px;
 	letter-spacing: 0.04em;
 
-	padding: 20px 5px;
+	padding: 10px 5px;
+	margin-bottom: 20px;
 
 	width: 100%;
 	border: none;
 	border-bottom: 1px solid #e0e0e0;
 `;
 
-const RadioGroup = styled.div``;
+const RadioGroupWrap = styled.div`
+	padding-left: 5px;
+`;
 
-const RadioWrap = styled.div`
+const RadioGroup = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	margin-top: 6px;
+`;
+
+const Radio = styled.div`
 	display: inline-block;
+	color: #9b9faa;
 
 	& input[type='radio'] {
 		position: absolute;
@@ -115,7 +132,7 @@ const BtnGroup = styled.div`
 	align-items: center;
 	flex-direction: column;
 
-	margin-top: 60px;
+	margin-top: 35px;
 `;
 
 const Button = styled.button`
@@ -124,8 +141,6 @@ const Button = styled.button`
 	font-weight: bold;
 	line-height: 17px;
 	letter-spacing: 0.04em;
-
-	margin-bottom: 20px;
 
 	border: none;
 	width: 176px;
@@ -140,13 +155,17 @@ const Button = styled.button`
 	&:hover {
 		box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
 	}
-
-	@media ${device.tablet} {
-		margin-bottom: 0;
-	}
-
-	@media ${device.desktop} {
-	}
 `;
 
-export { Heading, Subtitle, Form, RadioWrap, Label, Input, RadioGroup, BtnGroup, Button };
+export {
+	Heading,
+	BloodType,
+	Form,
+	Radio,
+	Label,
+	Input,
+	RadioGroupWrap,
+	RadioGroup,
+	BtnGroup,
+	Button,
+};

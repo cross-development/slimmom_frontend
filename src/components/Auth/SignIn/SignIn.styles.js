@@ -6,7 +6,7 @@ import { device } from 'index.styles';
 import { Link } from 'react-router-dom';
 
 const Form = styled.form`
-	margin-top: 60px;
+	margin-top: 40px;
 	margin-bottom: 20px;
 `;
 
