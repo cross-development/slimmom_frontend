@@ -2,9 +2,9 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 //Styles
+import { GoBackContainer, GoBackBtn, AdditionalInfo } from './DailyCalorieIntake.styles';
+import { ModalDropdown, DailyRate, ProductList, ProductItem } from './DailyCalorieIntake.styles';
 import { ModalWrap, Heading, Subtitle, BtnGroup, SignUpLink } from './DailyCalorieIntake.styles';
-import { GoBackContainer, GoBackIcon, GoBackBtn, ModalWindow } from './DailyCalorieIntake.styles';
-import { DailyRate, ProductList, ProductItem, AdditionalInfo } from './DailyCalorieIntake.styles';
 
 const DailyCalorieIntake = ({ dailyRate, notAllowedProducts, onCloseModal }) => {
 	const productItems = useMemo(
@@ -18,14 +18,12 @@ const DailyCalorieIntake = ({ dailyRate, notAllowedProducts, onCloseModal }) => 
 	);
 
 	return (
-		<ModalWrap>
-			<GoBackContainer>
-				<GoBackBtn onClick={onCloseModal}>
-					<GoBackIcon />
-				</GoBackBtn>
-			</GoBackContainer>
+		<ModalDropdown>
+			<ModalWrap>
+				<GoBackContainer>
+					<GoBackBtn onClick={onCloseModal}></GoBackBtn>
+				</GoBackContainer>
 
-			<ModalWindow>
 				<Heading>Ваша рекомендуемая суточная норма калорий составляет</Heading>
 
 				<DailyRate>
@@ -43,8 +41,8 @@ const DailyCalorieIntake = ({ dailyRate, notAllowedProducts, onCloseModal }) => 
 						Начать худеть
 					</SignUpLink>
 				</BtnGroup>
-			</ModalWindow>
-		</ModalWrap>
+			</ModalWrap>
+		</ModalDropdown>
 	);
 };
 

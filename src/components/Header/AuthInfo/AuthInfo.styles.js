@@ -4,17 +4,21 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const AuthMenu = styled.menu`
-	flex-basis: 60%;
+	/* flex-basis: 60%; */
 `;
 
 const AuthNav = styled.ul`
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: flex-end;
 `;
 
 const AuthNavItem = styled.li`
 	list-style: none;
+
+	&:first-child {
+		margin-right: 15px;
+	}
 `;
 
 const AuthNavLink = styled(NavLink)`

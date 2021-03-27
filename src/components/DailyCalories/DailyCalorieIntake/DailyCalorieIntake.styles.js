@@ -1,20 +1,44 @@
 //Core
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { IoReturnDownBackSharp } from 'react-icons/io5';
+//Settings
+import { device } from 'index.styles';
+
+const ModalDropdown = styled.div`
+	@media ${device.tablet} {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 10000;
+		width: 100%;
+		height: 100vh;
+
+		background: rgba(33, 33, 33, 0.1);
+	}
+`;
 
 const ModalWrap = styled.div`
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: auto;
+	height: calc(100vh - 85px);
+
+	padding: 75px 15px 0;
 
 	background-color: #fff;
-`;
 
-const ModalWindow = styled.div`
-	padding: 0 15px 0;
+	@media ${device.tablet} {
+		top: 49%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: calc(100% - 87px - 87px);
+		height: auto;
+
+		padding: 64px 43px 68px;
+
+		box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
+	}
 `;
 
 const GoBackContainer = styled.div`
@@ -22,21 +46,38 @@ const GoBackContainer = styled.div`
 	align-items: center;
 	justify-content: flex-start;
 
-	padding-left: 15px;
-	margin-bottom: 30px;
-
+	position: absolute;
+	width: 100%;
 	height: 40px;
+	top: 0;
+	left: 0;
 
-	background: #eff1f3;
+	padding: 0 15px;
+
+	background-color: #eff1f3;
+
+	@media ${device.tablet} {
+		justify-content: flex-end;
+		background-color: transparent;
+	}
 `;
 
 const GoBackBtn = styled.button`
 	border: none;
 	background-color: transparent;
-`;
+	width: 24px;
+	height: 24px;
 
-const GoBackIcon = styled(IoReturnDownBackSharp)`
-	font-size: 18px;
+	&::before {
+		font-size: 18px;
+		content: '⮨';
+	}
+
+	@media ${device.tablet} {
+		&::before {
+			content: '×';
+		}
+	}
 `;
 
 const Heading = styled.h1`
@@ -49,6 +90,13 @@ const Heading = styled.h1`
 	margin-bottom: 20px;
 
 	text-align: left;
+
+	@media ${device.tablet} {
+		font-size: 26px;
+		line-height: 32px;
+
+		text-align: center;
+	}
 `;
 
 const DailyRate = styled.p`
@@ -68,6 +116,12 @@ const AdditionalInfo = styled.div`
 	padding-top: 18px;
 
 	border-top: 1px solid #e0e0e0;
+
+	@media ${device.tablet} {
+		width: 330px;
+		margin-left: auto;
+		margin-right: auto;
+	}
 `;
 
 const Subtitle = styled.h2`
@@ -129,11 +183,10 @@ const SignUpLink = styled(Link)`
 `;
 
 export {
+	ModalDropdown,
 	ModalWrap,
-	ModalWindow,
 	GoBackContainer,
 	GoBackBtn,
-	GoBackIcon,
 	Heading,
 	DailyRate,
 	AdditionalInfo,

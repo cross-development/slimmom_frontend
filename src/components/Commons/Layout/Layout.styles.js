@@ -16,9 +16,15 @@ export const StyledArticle = styled.main`
 	padding-right: 15px;
 
 	width: ${size.mobile};
+	height: calc(100vh - 85px);
 
 	@media ${device.tablet} {
+		position: static;
+
 		width: ${size.tablet};
+
+		padding-left: 87px;
+		padding-right: 87px;
 	}
 
 	@media ${device.desktop} {

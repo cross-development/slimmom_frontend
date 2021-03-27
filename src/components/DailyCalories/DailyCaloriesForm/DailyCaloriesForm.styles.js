@@ -3,20 +3,44 @@ import styled from 'styled-components';
 //Settings
 import { device } from 'index.styles';
 
+const DailyWrapper = styled.div`
+	margin-top: 30px;
+
+	@media ${device.tablet} {
+		margin-top: 100px;
+	}
+
+	@media ${device.desktop} {
+		margin-top: 62px;
+	}
+`;
+
 const Form = styled.form`
-	margin-top: 40px;
+	margin-top: 25px;
+
+	@media ${device.tablet} {
+		margin-top: 55px;
+	}
 `;
 
 const Heading = styled.h1`
 	color: #212121;
 	font-weight: bold;
 	font-size: 18px;
-	line-height: 22px;
-	letter-spacing: 0.04em;
-
-	margin-bottom: 30px;
+	line-height: 26px;
+	letter-spacing: 0.06em;
 
 	text-align: left;
+
+	@media ${device.tablet} {
+		font-size: 30px;
+		line-height: 36px;
+	}
+
+	@media ${device.desktop} {
+		font-size: 34px;
+		line-height: 41px;
+	}
 `;
 
 const BloodType = styled.p`
@@ -41,6 +65,10 @@ const Input = styled.input`
 	width: 100%;
 	border: none;
 	border-bottom: 1px solid #e0e0e0;
+
+	@media ${device.tablet} {
+		margin-bottom: 30px;
+	}
 `;
 
 const RadioGroupWrap = styled.div`
@@ -133,6 +161,9 @@ const BtnGroup = styled.div`
 	flex-direction: column;
 
 	margin-top: 35px;
+
+	@media ${device.tablet} {
+	}
 `;
 
 const Button = styled.button`
@@ -158,6 +189,7 @@ const Button = styled.button`
 `;
 
 export {
+	DailyWrapper,
 	Heading,
 	BloodType,
 	Form,
