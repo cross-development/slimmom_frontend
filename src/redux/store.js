@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage';
 //Redux
 import { authReducers } from './auth';
 import { dailyReducers } from './daily';
+import { dayReducers } from './day';
 
 const authPersistConfig = {
 	key: 'auth',
@@ -17,6 +18,7 @@ export const store = configureStore({
 	reducer: {
 		auth: persistReducer(authPersistConfig, authReducers),
 		daily: dailyReducers,
+		day: dayReducers,
 	},
 
 	middleware: getDefaultMiddleware({
