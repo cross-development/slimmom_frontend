@@ -14,8 +14,8 @@ const HomePage = () => {
 
 	const handleOpenModal = () => setIsModalOpen(prevState => !prevState);
 
-	const handleSubmit = credentials => {
-		handleGuestDailyRate({ ...credentials });
+	const handleSubmit = guestCredentials => {
+		handleGuestDailyRate({ guestCredentials });
 		handleOpenModal();
 	};
 

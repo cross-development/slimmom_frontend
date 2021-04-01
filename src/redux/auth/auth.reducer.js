@@ -11,6 +11,10 @@ const user = createReducer(null, {
 	[authActions.userSighOutSuccess]: () => null,
 });
 
+const todaySummary = createReducer({}, {
+	[authActions.userSignInSuccess]: (state, { payload }) => payload.todaySummary,
+});
+
 const token = createReducer(null, {
 	[authActions.userSignUpSuccess]: (state, { payload }) => payload.token,
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.token,
@@ -43,4 +47,4 @@ const loading = createReducer(false, {
 	[authActions.userSighOutFailure]: () => false,
 });
 
-export default combineReducers({ user, token, error, loading });
+export default combineReducers({ user, todaySummary, token, error, loading });

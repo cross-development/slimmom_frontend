@@ -3,7 +3,7 @@ import axios from 'axios';
 //Redux
 import dailyActions from './daily.action';
 
-const guestDailyRate = guestCredentials => dispatch => {
+const guestDailyRate = ({ guestCredentials }) => dispatch => {
 	dispatch(dailyActions.guestDailyRequest());
 
 	axios
@@ -12,7 +12,7 @@ const guestDailyRate = guestCredentials => dispatch => {
 		.catch(error => dispatch(dailyActions.guestDailyFailure(error)));
 };
 
-const userDailyRate = (userCredentials, userId) => dispatch => {
+const userDailyRate = ({ userCredentials, userId }) => dispatch => {
 	dispatch(dailyActions.userDailyRequest());
 
 	axios
