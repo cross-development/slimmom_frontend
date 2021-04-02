@@ -16,11 +16,22 @@ const DailyWrapper = styled.div`
 `;
 
 const Form = styled.form`
+	display: flex;
+	flex-direction: column;
+
 	margin-top: 25px;
 
 	@media ${device.tablet} {
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
 		margin-top: 55px;
 	}
+`;
+
+const InputWrap = styled.div`
+	flex: 0 0 45%;
 `;
 
 const Heading = styled.h1`
@@ -49,6 +60,10 @@ const BloodType = styled.p`
 	font-weight: bold;
 	line-height: 17px;
 	letter-spacing: 0.04em;
+
+	@media ${device.tablet} {
+		margin-bottom: 16px;
+	}
 `;
 
 const Label = styled.label``;
@@ -68,6 +83,7 @@ const Input = styled.input`
 
 	@media ${device.tablet} {
 		margin-bottom: 30px;
+		padding: 16px 5px;
 	}
 `;
 
@@ -163,6 +179,7 @@ const BtnGroup = styled.div`
 	margin-top: 35px;
 
 	@media ${device.tablet} {
+		margin-top: 30px;
 	}
 `;
 
@@ -193,6 +210,7 @@ export {
 	Heading,
 	BloodType,
 	Form,
+	InputWrap,
 	Radio,
 	Label,
 	Input,

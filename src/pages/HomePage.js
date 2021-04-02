@@ -1,7 +1,7 @@
 //Core
 import React, { useState } from 'react';
 //Components
-import { DailyCaloriesForm, DailyCalorieIntake } from 'components/DailyCalories';
+import { DailyCaloriesForm, DailyCalorieIntake, DailyCaloriePromo } from 'components/DailyCalories';
 //Redux
 import { dailyHooks } from 'redux/daily';
 import { dailyOperations } from 'redux/daily';
@@ -26,6 +26,8 @@ const HomePage = () => {
 			{isModalOpen && guestRate && (
 				<DailyCalorieIntake {...guestRate} onCloseModal={handleOpenModal} />
 			)}
+
+			<DailyCaloriePromo />
 		</section>
 	);
 };

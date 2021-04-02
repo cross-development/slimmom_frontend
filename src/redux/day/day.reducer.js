@@ -4,6 +4,8 @@ import { createReducer } from '@reduxjs/toolkit';
 //Redux
 import dayActions from './day.action';
 
+const dayInfo = createReducer(null, {});
+
 const daySummary = createReducer(null, {});
 
 const error = createReducer(null, {
@@ -26,4 +28,4 @@ const loading = createReducer(false, {
 	[dayActions.getDayInfoFailure]: () => false,
 });
 
-export default combineReducers({ daySummary, loading, error });
+export default combineReducers({ dayInfo, daySummary, loading, error });

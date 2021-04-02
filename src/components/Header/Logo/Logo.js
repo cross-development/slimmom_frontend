@@ -1,17 +1,19 @@
 //Core
 import React from 'react';
-//Router
-import { Link } from 'react-router-dom';
 //Assets
 import logo from 'assets/img/logo.png';
 //Styles
-import { LogoWrap, MainLogo } from './Logo.styles';
+import { LogoWrap, LogoLink, MainLogo, LogoText } from './Logo.styles';
 
 const Logo = () => (
 	<LogoWrap>
-		<Link to="/">
+		<LogoLink to="/">
 			<MainLogo src={logo} alt="logo" />
-		</Link>
+
+			<LogoText>
+				Slim<span>Mom</span>
+			</LogoText>
+		</LogoLink>
 	</LogoWrap>
 );
 

@@ -1,12 +1,11 @@
 //Core
 import React from 'react';
-import PropTypes from 'prop-types';
 //Redux
 import { authHooks } from 'redux/auth';
 import { dailyHooks } from 'redux/daily';
 //Styles
-import { Section, Title } from './RightSideBar.styles';
-import { SummaryWrap, SummaryList, SummaryItem, SummaryCount } from './RightSideBar.styles';
+import { Wrapper, Title } from './RightSideBar.styles';
+import { SummaryWrap, SummaryList, SummaryItem } from './RightSideBar.styles';
 import { ProductWrap, ProductList, ProductItem, ProductMessage } from './RightSideBar.styles';
 
 const RightSideBar = () => {
@@ -14,27 +13,31 @@ const RightSideBar = () => {
 	const { userRate } = dailyHooks.useDailyRate();
 
 	const date = todaySummary.date ? todaySummary.date : new Date().toLocaleDateString();
+	const kcalLeft = todaySummary?.kcalLeft || '000';
+	const kcalConsumed = Math.floor(todaySummary?.kcalConsumed) || '000';
+	const dailyRate = userRate?.dailyRate || '000';
+	const percentsOfDailyRate = todaySummary?.percentsOfDailyRate || '000';
 
 	return (
-		<Section>
+		<Wrapper>
 			<SummaryWrap>
 				<Title>Сводка за {date}</Title>
 
 				<SummaryList>
 					<SummaryItem>
-						Осталось <SummaryCount>{} ккал</SummaryCount>
+						Осталось <span>{kcalLeft} ккал</span>
 					</SummaryItem>
 
 					<SummaryItem>
-						Употреблено <SummaryCount>{} ккал</SummaryCount>
+						Употреблено <span>{kcalConsumed} ккал</span>
 					</SummaryItem>
 
 					<SummaryItem>
-						Дневная норма <SummaryCount>{} ккал</SummaryCount>
+						Дневная норма <span>{dailyRate} ккал</span>
 					</SummaryItem>
 
 					<SummaryItem>
-						n% от нормы <SummaryCount>{} ккал</SummaryCount>
+						n% от нормы <span>{percentsOfDailyRate} %</span>
 					</SummaryItem>
 				</SummaryList>
 			</SummaryWrap>
@@ -44,18 +47,16 @@ const RightSideBar = () => {
 
 				{userRate && (
 					<ProductList>
-						{userRate.notAllowedProducts.map(item => (
-							<ProductItem>{item}</ProductItem>
+						{userRate.notAllowedProducts.map((item, idx) => (
+							<ProductItem key={`${item}${idx}`}>{item}</ProductItem>
 						))}
 					</ProductList>
 				)}
 
 				{!userRate && <ProductMessage>Здесь будет отображаться Ваш рацион</ProductMessage>}
 			</ProductWrap>
-		</Section>
+		</Wrapper>
 	);
 };
-
-RightSideBar.propTypes = {};
 
 export default RightSideBar;

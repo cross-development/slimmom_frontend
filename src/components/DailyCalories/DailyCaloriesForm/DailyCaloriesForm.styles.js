@@ -16,11 +16,22 @@ const DailyWrapper = styled.div`
 `;
 
 const Form = styled.form`
+	display: flex;
+	flex-direction: column;
+
 	margin-top: 25px;
 
 	@media ${device.tablet} {
+		flex-direction: row;
+		justify-content: space-between;
+		flex-wrap: wrap;
+
 		margin-top: 55px;
 	}
+`;
+
+const InputWrap = styled.div`
+	flex: 0 0 45%;
 `;
 
 const Heading = styled.h1`
@@ -193,6 +204,7 @@ export {
 	Heading,
 	BloodType,
 	Form,
+	InputWrap,
 	Radio,
 	Label,
 	Input,

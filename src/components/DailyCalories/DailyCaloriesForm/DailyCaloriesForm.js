@@ -7,8 +7,9 @@ import { yupResolver } from '@hookform/resolvers/yup';
 //Utils
 import { dailySchema } from 'helpers/validationSchemas';
 //Styles
-import { BtnGroup, Button, RadioGroupWrap, RadioGroup, Radio } from './DailyCaloriesForm.styles';
-import { DailyWrapper, Heading, BloodType, Form, Label, Input } from './DailyCaloriesForm.styles';
+import { InputWrap, BtnGroup, Button } from './DailyCaloriesForm.styles';
+import { DailyWrapper, Heading, Form, Label, Input } from './DailyCaloriesForm.styles';
+import { RadioGroupWrap, BloodType, RadioGroup, Radio } from './DailyCaloriesForm.styles';
 
 const DailyCaloriesForm = ({ onSubmit }) => {
 	const { register, handleSubmit, errors } = useForm({
@@ -20,63 +21,79 @@ const DailyCaloriesForm = ({ onSubmit }) => {
 			<Heading>Просчитай свою суточную норму калорий прямо сейчас</Heading>
 
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<Label>
-					<Input type="text" name="height" autoComplete="off" ref={register} placeholder="Рост *" />
-					{errors.height && <span>{errors.height.message}</span>}
-				</Label>
+				<InputWrap>
+					<Label>
+						<Input
+							type="text"
+							name="height"
+							autoComplete="off"
+							ref={register}
+							placeholder="Рост *"
+						/>
+						{errors.height && <span>{errors.height.message}</span>}
+					</Label>
 
-				<Label>
-					<Input type="text" name="age" ref={register} autoComplete="off" placeholder="Возраст *" />
-					{errors.age && <span>{errors.age.message}</span>}
-				</Label>
+					<Label>
+						<Input
+							type="text"
+							name="age"
+							ref={register}
+							autoComplete="off"
+							placeholder="Возраст *"
+						/>
+						{errors.age && <span>{errors.age.message}</span>}
+					</Label>
 
-				<Label>
-					<Input
-						type="text"
-						name="weight"
-						autoComplete="off"
-						ref={register}
-						placeholder="Текущий вес *"
-					/>
-					{errors.weight && <span>{errors.weight.message}</span>}
-				</Label>
+					<Label>
+						<Input
+							type="text"
+							name="weight"
+							autoComplete="off"
+							ref={register}
+							placeholder="Текущий вес *"
+						/>
+						{errors.weight && <span>{errors.weight.message}</span>}
+					</Label>
+				</InputWrap>
 
-				<Label>
-					<Input
-						type="text"
-						name="desiredWeight"
-						autoComplete="off"
-						ref={register}
-						placeholder="Желаемый вес *"
-					/>
-					{errors.desiredWeight && <span>{errors.desiredWeight.message}</span>}
-				</Label>
+				<InputWrap>
+					<Label>
+						<Input
+							type="text"
+							name="desiredWeight"
+							autoComplete="off"
+							ref={register}
+							placeholder="Желаемый вес *"
+						/>
+						{errors.desiredWeight && <span>{errors.desiredWeight.message}</span>}
+					</Label>
 
-				<RadioGroupWrap>
-					<BloodType>Группа крови *</BloodType>
+					<RadioGroupWrap>
+						<BloodType>Группа крови *</BloodType>
 
-					<RadioGroup>
-						<Radio>
-							<input id="radio-1" type="radio" value="1" name="bloodType" ref={register} />
-							<label htmlFor="radio-1">1</label>
-						</Radio>
+						<RadioGroup>
+							<Radio>
+								<input id="radio-1" type="radio" value="1" name="bloodType" ref={register} />
+								<label htmlFor="radio-1">1</label>
+							</Radio>
 
-						<Radio>
-							<input id="radio-2" type="radio" value="2" name="bloodType" ref={register} />
-							<label htmlFor="radio-2">2</label>
-						</Radio>
+							<Radio>
+								<input id="radio-2" type="radio" value="2" name="bloodType" ref={register} />
+								<label htmlFor="radio-2">2</label>
+							</Radio>
 
-						<Radio>
-							<input id="radio-3" type="radio" value="3" name="bloodType" ref={register} />
-							<label htmlFor="radio-3">3</label>
-						</Radio>
+							<Radio>
+								<input id="radio-3" type="radio" value="3" name="bloodType" ref={register} />
+								<label htmlFor="radio-3">3</label>
+							</Radio>
 
-						<Radio>
-							<input id="radio-4" type="radio" value="4" name="bloodType" ref={register} />
-							<label htmlFor="radio-4">4</label>
-						</Radio>
-					</RadioGroup>
-				</RadioGroupWrap>
+							<Radio>
+								<input id="radio-4" type="radio" value="4" name="bloodType" ref={register} />
+								<label htmlFor="radio-4">4</label>
+							</Radio>
+						</RadioGroup>
+					</RadioGroupWrap>
+				</InputWrap>
 
 				<BtnGroup>
 					<Button type="submit">Похудеть</Button>
