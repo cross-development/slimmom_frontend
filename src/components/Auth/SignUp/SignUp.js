@@ -7,7 +7,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 //Utils
 import { signUpSchema } from 'helpers/validationSchemas';
 //Styles
-import { Heading, Form, Label, Input, BtnGroup, Button, SignUpLink } from './SignUp.styles';
+import { PromoWrap, Heading } from './SignUp.styles';
+import { Form, Label, Input, BtnGroup, Button, SignUpLink } from './SignUp.styles';
 
 const SignUp = ({ onSubmit }) => {
 	const { register, handleSubmit, errors } = useForm({
@@ -15,29 +16,45 @@ const SignUp = ({ onSubmit }) => {
 	});
 
 	return (
-		<Form onSubmit={handleSubmit(onSubmit)}>
-			<Heading>Регистрация</Heading>
+		<>
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<Heading>Регистрация</Heading>
 
-			<Label>
-				<Input type="text" name="username" placeholder="Имя *" autoComplete="off" ref={register} />
-				{errors.username && <span>{errors.username.message}</span>}
-			</Label>
+				<Label>
+					<Input
+						type="text"
+						name="username"
+						placeholder="Имя *"
+						autoComplete="off"
+						ref={register}
+					/>
+					{errors.username && <span>{errors.username.message}</span>}
+				</Label>
 
-			<Label>
-				<Input type="email" name="email" placeholder="Email *" autoComplete="off" ref={register} />
-				{errors.email && <span>{errors.email.message}</span>}
-			</Label>
+				<Label>
+					<Input
+						type="email"
+						name="email"
+						placeholder="Email *"
+						autoComplete="off"
+						ref={register}
+					/>
+					{errors.email && <span>{errors.email.message}</span>}
+				</Label>
 
-			<Label>
-				<Input type="password" name="password" placeholder="Пароль *" ref={register} />
-				{errors.password && <span>{errors.password.message}</span>}
-			</Label>
+				<Label>
+					<Input type="password" name="password" placeholder="Пароль *" ref={register} />
+					{errors.password && <span>{errors.password.message}</span>}
+				</Label>
 
-			<BtnGroup>
-				<Button type="submit">Регистрация</Button>
-				<SignUpLink to="/sign-in">Вход</SignUpLink>
-			</BtnGroup>
-		</Form>
+				<BtnGroup>
+					<Button type="submit">Регистрация</Button>
+					<SignUpLink to="/sign-in">Вход</SignUpLink>
+				</BtnGroup>
+			</Form>
+
+			<PromoWrap />
+		</>
 	);
 };
 

@@ -16,12 +16,10 @@ const DailyWrapper = styled.div`
 `;
 
 const Form = styled.form`
-	display: flex;
-	flex-direction: column;
-
 	margin-top: 25px;
 
 	@media ${device.tablet} {
+		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		flex-wrap: wrap;

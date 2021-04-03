@@ -8,12 +8,7 @@ import { ModalWrap, Heading, Subtitle, BtnGroup, SignUpLink } from './DailyCalor
 
 const DailyCalorieIntake = ({ dailyRate, notAllowedProducts, onCloseModal }) => {
 	const productItems = useMemo(
-		() =>
-			notAllowedProducts.map((item, idx) => {
-				const randProdIdx = Math.floor(Math.random() * notAllowedProducts.length);
-
-				return idx < 4 && <ProductItem key={item}>{notAllowedProducts[randProdIdx]}</ProductItem>;
-			}),
+		() => notAllowedProducts.map((itm, i) => <ProductItem key={`${i}${itm}`}>{itm}</ProductItem>),
 		[notAllowedProducts],
 	);
 

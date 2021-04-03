@@ -136,6 +136,25 @@ const Subtitle = styled.h2`
 
 const ProductList = styled.ul`
 	list-style: decimal inside;
+
+	max-height: 110px;
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #424242;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #7a7e81;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background: #9e9e9e;
+	}
 `;
 
 const ProductItem = styled.li`
