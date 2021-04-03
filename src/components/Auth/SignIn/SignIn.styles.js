@@ -6,7 +6,7 @@ import banana from 'assets/img/banana.png';
 import layer2 from 'assets/img/layer2.png';
 import strawberry from 'assets/img/strawberry.png';
 //Settings
-import { device } from 'index.styles';
+import { device } from 'styles/index.styles';
 //Router
 import { Link } from 'react-router-dom';
 
@@ -61,6 +61,11 @@ const Input = styled.input`
 	width: 100%;
 	border: none;
 	border-bottom: 1px solid #e0e0e0;
+`;
+
+const Message = styled.span`
+	color: #e74c3c;
+	font-size: 14px;
 `;
 
 const BtnGroup = styled.div`
@@ -164,4 +169,4 @@ const PromoWrap = styled.div`
 	}
 `;
 
-export { Heading, Form, Label, Input, BtnGroup, Button, SignUpLink, PromoWrap };
+export { Heading, Form, Label, Input, Message, BtnGroup, Button, SignUpLink, PromoWrap };

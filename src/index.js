@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from 'redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 //Styles
-import GlobalStyles from 'index.styles';
+import GlobalStyles from 'styles/index.styles';
 
 ReactDOM.render(
 	<Provider store={store}>

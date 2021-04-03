@@ -4,9 +4,9 @@ import { css } from '@emotion/core';
 export const LoaderWrapperDiv = styled.div`
 	width: 100%;
 	position: absolute;
-	top: 0;
+	top: -85px;
 	left: 0;
-	height: 100vh;
+	height: calc(100vh + 85px);
 	display: flex;
 	justify-content: center;
 	align-items: center;

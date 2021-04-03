@@ -7,8 +7,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 //Utils
 import { dailySchema } from 'helpers/validationSchemas';
 //Styles
-import { RadioGroupWrap, RadioGroup, Radio } from './CalculatorCaloriesForm.styles';
 import { Heading, BtnGroup, Button, InputWrap } from './CalculatorCaloriesForm.styles';
+import { Message, RadioGroupWrap, RadioGroup, Radio } from './CalculatorCaloriesForm.styles';
 import { DailyWrapper, BloodType, Form, Label, Input } from './CalculatorCaloriesForm.styles';
 
 const CalculatorCaloriesForm = ({ onSubmit }) => {
@@ -24,48 +24,48 @@ const CalculatorCaloriesForm = ({ onSubmit }) => {
 				<InputWrap>
 					<Label>
 						<Input
-							type="text"
+							type="number"
 							name="height"
 							autoComplete="off"
-							ref={register}
+							ref={register({ setValueAs: v => Number(v) })}
 							placeholder="Рост *"
 						/>
-						{errors.height && <span>{errors.height.message}</span>}
+						{<Message>{errors.height?.message}</Message>}
 					</Label>
 
 					<Label>
 						<Input
-							type="text"
+							type="number"
 							name="age"
-							ref={register}
+							ref={register({ setValueAs: v => Number(v) })}
 							autoComplete="off"
 							placeholder="Возраст *"
 						/>
-						{errors.age && <span>{errors.age.message}</span>}
+						{<Message>{errors.age?.message}</Message>}
 					</Label>
 
 					<Label>
 						<Input
-							type="text"
+							type="number"
 							name="weight"
 							autoComplete="off"
-							ref={register}
+							ref={register({ setValueAs: v => Number(v) })}
 							placeholder="Текущий вес *"
 						/>
-						{errors.weight && <span>{errors.weight.message}</span>}
+						{<Message>{errors.weight?.message}</Message>}
 					</Label>
 				</InputWrap>
 
 				<InputWrap>
 					<Label>
 						<Input
-							type="text"
+							type="number"
 							name="desiredWeight"
 							autoComplete="off"
-							ref={register}
+							ref={register({ setValueAs: v => Number(v) })}
 							placeholder="Желаемый вес *"
 						/>
-						{errors.desiredWeight && <span>{errors.desiredWeight.message}</span>}
+						{<Message>{errors.desiredWeight?.message}</Message>}
 					</Label>
 
 					<RadioGroupWrap>

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 //Assets
 import layer1 from 'assets/img/layer1.png';
 //Settings
-import { device } from 'index.styles';
+import { device } from 'styles/index.styles';
 
 const Wrapper = styled.div`
 	display: flex;

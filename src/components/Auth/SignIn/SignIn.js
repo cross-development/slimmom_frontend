@@ -7,7 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 //Utils
 import { signInSchema } from 'helpers/validationSchemas';
 //Styles
-import { Heading, PromoWrap } from './SignIn.styles';
+import { Heading, PromoWrap, Message } from './SignIn.styles';
 import { Form, Label, Input, BtnGroup, Button, SignUpLink } from './SignIn.styles';
 
 const SignIn = ({ onSubmit }) => {
@@ -28,12 +28,12 @@ const SignIn = ({ onSubmit }) => {
 						ref={register}
 						placeholder="Email *"
 					/>
-					{errors.email && <span>{errors.email.message}</span>}
+					{<Message>{errors.email?.message}</Message>}
 				</Label>
 
 				<Label>
 					<Input type="password" name="password" ref={register} placeholder="Пароль *" />
-					{errors.password && <span>{errors.password.message}</span>}
+					{<Message>{errors.password?.message}</Message>}
 				</Label>
 
 				<BtnGroup>

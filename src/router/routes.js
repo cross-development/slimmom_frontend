@@ -8,7 +8,7 @@ const routes = [
 		exact: true,
 		private: false,
 		restricted: true,
-		isNavigate: true,
+		isNavigate: false,
 		component: lazy(() => import('pages/HomePage' /* webpackChunkName: "home-page" */)),
 	},
 	{

@@ -6,7 +6,7 @@ import banana from 'assets/img/banana.png';
 import layer from 'assets/img/layer.png';
 import strawberry from 'assets/img/strawberry.png';
 //Settings
-import { device } from 'index.styles';
+import { device } from 'styles/index.styles';
 
 const PromoWrap = styled.div`
 	display: none;

@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 //Settings
-import { device } from 'index.styles';
+import { device } from 'styles/index.styles';
 
 const ModalDropdown = styled.div`
 	@media ${device.tablet} {

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const AuthMenu = styled.menu`
-	/* flex-basis: 60%; */
+	margin-left: auto;
 `;
 
 const AuthNav = styled.ul`

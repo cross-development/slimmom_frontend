@@ -1,19 +1,34 @@
 //Core
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+//Components
+import HamburgerBtn from '../HamburgerBtn';
 //Styles
-import {} from './Navigation.styles'
+import { CSSTransition } from 'react-transition-group';
+import { NavWrap, Menu, MenuLink } from './Navigation.styles';
+import slideTransition from 'styles/transitions/slide.module.css';
 
 const Navigation = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+	const [isOpen, setIsOpen] = useState(false);
 
-Navigation.propTypes = {
+	const toggleMenuMode = () => setIsOpen(!isOpen);
 
-}
+	return (
+		<NavWrap>
+			<HamburgerBtn isOpen={isOpen} onToggleMenuMode={toggleMenuMode} />
 
-export default Navigation
+			<CSSTransition in={isOpen} timeout={250} classNames={slideTransition} unmountOnExit>
+				<Menu isOpen={isOpen}>
+					<MenuLink to="/diary" onClick={toggleMenuMode}>
+						Дневник
+					</MenuLink>
+
+					<MenuLink to="/calculator" onClick={toggleMenuMode}>
+						Калькулятор
+					</MenuLink>
+				</Menu>
+			</CSSTransition>
+		</NavWrap>
+	);
+};
+
+export default Navigation;

@@ -15,7 +15,7 @@ const Header = () => {
 
 	return (
 		<HeaderWrap>
-			<Logo />
+			<Logo isAuth={Boolean(user)} />
 
 			{user && <Navigation />}
 

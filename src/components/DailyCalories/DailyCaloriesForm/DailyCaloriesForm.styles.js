@@ -1,7 +1,7 @@
 //Core
 import styled from 'styled-components';
 //Settings
-import { device } from 'index.styles';
+import { device } from 'styles/index.styles';
 
 const DailyWrapper = styled.div`
 	margin-top: 30px;
@@ -24,7 +24,7 @@ const Form = styled.form`
 		justify-content: space-between;
 		flex-wrap: wrap;
 
-		margin-top: 55px;
+		margin-top: 50px;
 	}
 `;
 
@@ -60,7 +60,21 @@ const BloodType = styled.p`
 	letter-spacing: 0.04em;
 `;
 
-const Label = styled.label``;
+const Label = styled.label`
+	display: block;
+
+	margin-bottom: 20px;
+
+	position: relative;
+
+	@media ${device.tablet} {
+		margin-bottom: 30px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+`;
 
 const Input = styled.input`
 	font-weight: bold;
@@ -69,15 +83,23 @@ const Input = styled.input`
 	letter-spacing: 0.04em;
 
 	padding: 10px 5px;
-	margin-bottom: 20px;
 
 	width: 100%;
 	border: none;
 	border-bottom: 1px solid #e0e0e0;
 
 	@media ${device.tablet} {
-		margin-bottom: 30px;
+		padding: 16px 5px;
 	}
+`;
+
+const Message = styled.span`
+	color: #e74c3c;
+	font-size: 12px;
+
+	position: absolute;
+	bottom: -14px;
+	left: 0;
 `;
 
 const RadioGroupWrap = styled.div`
@@ -172,6 +194,7 @@ const BtnGroup = styled.div`
 	margin-top: 35px;
 
 	@media ${device.tablet} {
+		margin-top: 60px;
 	}
 `;
 
@@ -206,6 +229,7 @@ export {
 	Radio,
 	Label,
 	Input,
+	Message,
 	RadioGroupWrap,
 	RadioGroup,
 	BtnGroup,

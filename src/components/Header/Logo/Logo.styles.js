@@ -3,7 +3,7 @@ import styled from 'styled-components';
 //Router
 import { Link } from 'react-router-dom';
 //Settings
-import { device } from 'index.styles';
+import { device } from 'styles/index.styles';
 
 const LogoWrap = styled.div`
 	display: flex;
@@ -11,9 +11,10 @@ const LogoWrap = styled.div`
 `;
 
 const LogoLink = styled(Link)`
+	display: flex;
+	align-items: center;
+
 	@media ${device.tablet} {
-		display: flex;
-		align-items: center;
 	}
 
 	@media ${device.desktop} {
@@ -33,19 +34,19 @@ const MainLogo = styled.img`
 `;
 
 const LogoText = styled.p`
-	display: none;
+	color: #212121;
+	font-size: 20px;
+	line-height: 24px;
+	letter-spacing: 0.06em;
+
+	display: ${({ isAuth }) => (isAuth ? 'block' : 'none')};
+
+	& span {
+		color: #fc842d;
+	}
 
 	@media ${device.tablet} {
-		color: #212121;
-		font-size: 20px;
-		line-height: 24px;
-		letter-spacing: 0.06em;
-
 		display: block;
-
-		& span {
-			color: #fc842d;
-		}
 	}
 
 	@media ${device.desktop} {

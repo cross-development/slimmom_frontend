@@ -1,19 +1,28 @@
 //Core
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+//Redux
+import { authHooks, authOperations } from 'redux/auth';
 //Styles
-import {} from './UserInfo.styles'
+import { UserInfoWrap, Border, UserName, SignOutLink } from './UserInfo.styles';
 
 const UserInfo = () => {
-    return (
-        <div>
-            UserInfo
-        </div>
-    )
-}
+	const { user } = authHooks.useGetUser();
 
-UserInfo.propTypes = {
+	const signOutUser = authHooks.useUserEmptyAction(authOperations.userSighOut);
 
-}
+	const handleSignOut = () => signOutUser();
 
-export default UserInfo
+	return (
+		<UserInfoWrap>
+			<UserName>{user.username}</UserName>
+
+			<Border />
+
+			<SignOutLink to="/" onClick={handleSignOut}>
+				Выйти
+			</SignOutLink>
+		</UserInfoWrap>
+	);
+};
+
+export default UserInfo;
