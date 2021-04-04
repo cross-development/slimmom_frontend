@@ -1,10 +1,16 @@
 //Core
 import styled from 'styled-components';
+//Settings
+import { device } from 'styles/index.styles';
 //Router
 import { NavLink } from 'react-router-dom';
 
 const AuthMenu = styled.menu`
 	margin-left: auto;
+
+	@media ${device.desktop} {
+		margin-left: 0;
+	}
 `;
 
 const AuthNav = styled.ul`

@@ -76,12 +76,14 @@ export const size = {
 	mobile: '320px',
 	tablet: '768px',
 	desktop: '1280px',
+	large: '1440px',
 };
 
 export const device = {
 	mobile: `screen and (min-width: ${size.mobile})`,
 	tablet: `screen and (min-width: ${size.tablet})`,
 	desktop: `screen and (min-width: ${size.desktop})`,
+	large: `screen and (min-width: ${size.large})`,
 };
 
 export default GlobalStyle;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import vector from 'assets/img/vector.png';
 import banana from 'assets/img/banana.png';
 import layer from 'assets/img/layer.png';
+import layer3 from 'assets/img/layer3.png';
 import strawberry from 'assets/img/strawberry.png';
 //Settings
 import { device } from 'styles/index.styles';
@@ -17,7 +18,7 @@ const PromoWrap = styled.div`
 		justify-content: space-between;
 		align-items: stretch;
 
-		min-height: 50%;
+		min-height: 100%;
 		flex: 1 0 auto;
 		overflow: hidden;
 
@@ -27,26 +28,19 @@ const PromoWrap = styled.div`
 		right: 0;
 		z-index: -1;
 
-		background-image: url(${banana}), url(${strawberry}), url(${vector});
-		background-size: 60%, 30%, 68%;
+		background-image: url(${banana}), url(${layer3}), url(${strawberry}), url(${vector});
+		background-size: 60%, 80%, 32%, 80%;
 		background-repeat: no-repeat;
-		background-position: 100% 200%, 86% 25%, 100% 100%;
+		background-position: 100% 115%, 8% 100%, 92% 76%, 180% 168%;
+	}
 
-		&::before {
-			content: '';
-			position: absolute;
-			bottom: -25%;
-			left: -15%;
+	@media ${device.desktop} {
+		min-height: 100%;
 
-			width: 100%;
-			height: 100%;
-			transform: rotate(90deg);
-
-			background-image: url(${layer});
-			background-size: 62%;
-			background-repeat: no-repeat;
-			background-position: 0 -20px;
-		}
+		background-image: url(${banana}), url(${layer}), url(${strawberry}), url(${vector});
+		background-size: 36%, 60%, 25%, 54%;
+		background-repeat: no-repeat;
+		background-position: 100% 0%, 62% 0, 98% 100%, 118% 100%;
 	}
 `;
 

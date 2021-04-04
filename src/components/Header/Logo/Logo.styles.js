@@ -29,7 +29,10 @@ const MainLogo = styled.img`
 	margin-right: 10px;
 
 	@media ${device.desktop} {
-		margin-right: -8px;
+		margin-right: -10px;
+
+		width: 70px;
+		height: 66px;
 	}
 `;
 
@@ -50,8 +53,8 @@ const LogoText = styled.p`
 	}
 
 	@media ${device.desktop} {
-		font-size: 18px;
-		line-height: 18px;
+		font-size: 20px;
+		line-height: 20px;
 	}
 `;
 

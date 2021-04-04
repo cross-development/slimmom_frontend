@@ -39,6 +39,13 @@ const ModalWrap = styled.div`
 
 		box-shadow: 0px 22px 40px rgba(0, 0, 0, 0.1);
 	}
+
+	@media ${device.desktop} {
+		top: 50%;
+		width: 54%;
+
+		padding: 64px 91px 68px;
+	}
 `;
 
 const GoBackContainer = styled.div`
@@ -74,6 +81,8 @@ const GoBackBtn = styled.button`
 	}
 
 	@media ${device.tablet} {
+		cursor: pointer;
+
 		&::before {
 			content: '×';
 		}

@@ -8,7 +8,7 @@ import Navigation from './Navigation';
 //Redux
 import { authHooks } from 'redux/auth';
 //Styles
-import { HeaderWrap } from './Header.styles';
+import { HeaderWrap, Border } from './Header.styles';
 
 const Header = () => {
 	const { user } = authHooks.useGetUser();
@@ -16,6 +16,8 @@ const Header = () => {
 	return (
 		<HeaderWrap>
 			<Logo isAuth={Boolean(user)} />
+
+			<Border/>
 
 			{user && <Navigation />}
 

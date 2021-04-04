@@ -11,7 +11,9 @@ const DailyWrapper = styled.div`
 	}
 
 	@media ${device.desktop} {
-		margin-top: 62px;
+		margin-top: 137px;
+
+		width: 55%;
 	}
 `;
 
@@ -21,7 +23,6 @@ const Form = styled.form`
 	@media ${device.tablet} {
 		display: flex;
 		flex-direction: row;
-		justify-content: space-between;
 		flex-wrap: wrap;
 
 		margin-top: 50px;
@@ -30,6 +31,16 @@ const Form = styled.form`
 
 const InputWrap = styled.div`
 	flex: 0 0 45%;
+
+	@media ${device.tablet} {
+		&:first-of-type {
+			margin-right: 31px;
+		}
+	}
+
+	@media ${device.desktop} {
+		flex: 0 0 40%;
+	}
 `;
 
 const Heading = styled.h1`
@@ -195,6 +206,10 @@ const BtnGroup = styled.div`
 
 	@media ${device.tablet} {
 		margin-top: 60px;
+	}
+
+	@media ${device.desktop} {
+		margin-left: 55%;
 	}
 `;
 

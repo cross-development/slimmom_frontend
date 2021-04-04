@@ -3,7 +3,9 @@ import styled from 'styled-components';
 //Assets
 import vector from 'assets/img/vector.png';
 import banana from 'assets/img/banana.png';
+import banana1 from 'assets/img/banana1.png';
 import layer2 from 'assets/img/layer2.png';
+import layer4 from 'assets/img/layer4.png';
 import strawberry from 'assets/img/strawberry.png';
 //Settings
 import { device } from 'styles/index.styles';
@@ -159,13 +161,24 @@ const PromoWrap = styled.div`
 		right: 0;
 		z-index: -1;
 
-		background-image: url(${banana}), url(${strawberry}), url(${vector}), url(${layer2});
-		background-size: 62%, 40%, 68%, 85%;
+		background-image: url(${banana}), url(${strawberry}), url(${layer2}), url(${vector});
+		background-size: 60%, 45%, 85%, 80%;
 		background-repeat: no-repeat;
-		background-position: 100% 115%, 110% 68%, 100% 100%, 50% 22%;
+		background-position: 100% 115%, 112% 70%, 50% 26%, 180% 168%;
 	}
 
 	@media ${device.desktop} {
+		background-image: url(${banana1}), url(${strawberry}), url(${layer4}), url(${vector});
+		background-size: 45%, 24%, 60%, 56%;
+		background-repeat: no-repeat;
+		background-position: 100% 100%, 94% 38%, 50% 100%, 100% 100%;
+	}
+
+	@media ${device.large} {
+		background-image: url(${banana1}), url(${strawberry}), url(${layer4}), url(${vector});
+		background-size: 45%, 24%, 60%, 56%;
+		background-repeat: no-repeat;
+		background-position: 100% 100%, 94% 10%, 50% 100%, 100% 100%;
 	}
 `;
 

@@ -26,7 +26,22 @@ const HeaderWrap = styled.header`
 	}
 
 	@media ${device.desktop} {
+		align-items: flex-end;
+
+		padding: 82px 90px 10px;
+
+		border-bottom: none;
+
+		background-color: transparent;
 	}
 `;
 
-export { HeaderWrap };
+const Border = styled.div`
+	width: 32px;
+	transform: rotate(90deg);
+	border: 1px solid #e0e0e0;
+
+	margin-bottom: 5px;
+`;
+
+export { HeaderWrap, Border };

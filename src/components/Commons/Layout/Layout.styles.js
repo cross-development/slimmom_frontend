@@ -1,7 +1,7 @@
 //Core
 import styled from 'styled-components';
 //Settings
-import { device, size } from 'styles/index.styles';
+import { device } from 'styles/index.styles';
 
 export const StyledArticle = styled.main`
 	display: flex;
@@ -20,13 +20,12 @@ export const StyledArticle = styled.main`
 
 		position: static;
 
-		width: ${size.tablet};
-
 		padding-left: 87px;
 		padding-right: 87px;
 	}
 
 	@media ${device.desktop} {
-		width: ${size.desktop};
+		padding-left: 115px;
+		padding-right: 115px;
 	}
 `;
