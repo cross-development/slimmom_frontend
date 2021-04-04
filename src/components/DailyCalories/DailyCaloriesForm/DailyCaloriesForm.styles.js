@@ -69,6 +69,10 @@ const BloodType = styled.p`
 	font-weight: bold;
 	line-height: 17px;
 	letter-spacing: 0.04em;
+
+	@media ${device.tablet} {
+		margin-bottom: 16px;
+	}
 `;
 
 const Label = styled.label`

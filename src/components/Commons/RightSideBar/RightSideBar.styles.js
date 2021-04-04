@@ -2,6 +2,7 @@
 import styled from 'styled-components';
 //Assets
 import layer1 from 'assets/img/layer1.png';
+import layer5 from 'assets/img/layer5.png';
 //Settings
 import { device } from 'styles/index.styles';
 
@@ -31,6 +32,25 @@ const Wrapper = styled.div`
 		background-size: contain;
 		background-repeat: no-repeat;
 		background-position: bottom right;
+	}
+
+	@media ${device.desktop} {
+		flex-direction: column;
+
+		padding: 295px 130px 160px 90px;
+
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 58%;
+
+		background-image: url(${layer5});
+	}
+
+	@media ${device.large} {
+		left: 65%;
+
+		padding: 295px 160px 160px 90px;
 	}
 `;
 
@@ -101,6 +121,10 @@ const ProductList = styled.ul`
 
 	&::-webkit-scrollbar-thumb:hover {
 		background: #9e9e9e;
+	}
+
+	@media ${device.desktop} {
+		max-height: 150px;
 	}
 `;
 

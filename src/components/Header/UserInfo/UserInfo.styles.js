@@ -37,6 +37,12 @@ const UserInfoWrap = styled.div`
 	}
 
 	@media ${device.desktop} {
+		order: 3;
+
+		align-items: flex-end;
+
+		margin-right: 0;
+		padding: 0;
 	}
 `;
 
@@ -49,12 +55,13 @@ const UserName = styled.p`
 `;
 
 const Border = styled.div`
-	align-self: stretch;
-
-	margin-left: 15px;
-	margin-right: 15px;
-
+	width: 32px;
+	transform: rotate(90deg);
 	border: 1px solid #e0e0e0;
+
+	@media ${device.desktop} {
+		margin-bottom: 5px;
+	}
 `;
 
 const SignOutLink = styled(Link)`
@@ -63,6 +70,12 @@ const SignOutLink = styled(Link)`
 	font-weight: bold;
 	line-height: 17px;
 	letter-spacing: 0.04em;
+
+	transition: all 250ms linear;
+
+	&:hover {
+		color: #212121;
+	}
 `;
 
 export { UserInfoWrap, Border, UserName, SignOutLink };

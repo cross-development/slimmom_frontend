@@ -37,11 +37,17 @@ const HeaderWrap = styled.header`
 `;
 
 const Border = styled.div`
-	width: 32px;
-	transform: rotate(90deg);
-	border: 1px solid #e0e0e0;
+	display: none;
 
-	margin-bottom: 5px;
+	@media ${device.desktop} {
+		display: block;
+
+		width: 32px;
+		transform: rotate(90deg);
+		border: 1px solid #e0e0e0;
+
+		margin-bottom: 5px;
+	}
 `;
 
 export { HeaderWrap, Border };

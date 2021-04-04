@@ -5,21 +5,13 @@ import { NavLink } from 'react-router-dom';
 //Settings
 import { device } from 'styles/index.styles';
 
-const NavWrap = styled.div`
-	margin-left: auto;
-
-	@media ${device.tablet} {
-		order: 3;
-
-		margin-left: 0;
-	}
-
+const SideWrap = styled.div`
 	@media ${device.desktop} {
-		order: 2;
+		display: none;
 	}
 `;
 
-const SideMenu = styled.nav`
+const Menu = styled.nav`
 	display: block;
 
 	position: fixed;
@@ -56,4 +48,4 @@ const MenuLink = styled(NavLink)`
 	}
 `;
 
-export { NavWrap, SideMenu, MenuLink };
+export { SideWrap, Menu, MenuLink };

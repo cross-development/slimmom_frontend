@@ -1,5 +1,7 @@
 //Core
 import styled from 'styled-components';
+//Settings
+import { device } from 'styles/index.styles';
 
 const MenuButton = styled.button`
 	display: block;
