@@ -33,14 +33,14 @@ const MenuLink = styled(NavLink)`
 	max-width: 100%;
 
 	text-decoration: none;
-	color: #fff;
+	color: #9b9faa;
 	font-size: 18px;
 	line-height: 22px;
 	font-weight: bold;
 	text-transform: uppercase;
 
 	&.active {
-		color: #9b9faa;
+		color: #fff;
 	}
 
 	&:first-of-type {
