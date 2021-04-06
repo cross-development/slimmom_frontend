@@ -48,4 +48,9 @@ const dailySchema = yup.object().shape({
 	bloodType: yup.number().min(1).max(4).required('Выберите Вашу группу крови.'),
 });
 
-export { signInSchema, signUpSchema, dailySchema };
+const productSchema = yup.object().shape({
+	product: yup.string().required('Выберите необходимый продукт'),
+	weight: yup.number().min(1, 'Минимальный вес 1 грамм').required('Введите вес продукта'),
+});
+
+export { signInSchema, signUpSchema, dailySchema, productSchema };

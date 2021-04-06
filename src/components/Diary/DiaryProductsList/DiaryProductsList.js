@@ -1,24 +1,27 @@
 //Core
-import React, { useMemo } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 //Components
 import DiaryProductsListItem from './DiaryProductsListItem';
 //Styles
-import {} from './DiaryProductsList.styles';
+import { ProductWrap } from './DiaryProductsList.styles';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import slideTransition from 'styles/transitions/slide.module.css';
 
-const DiaryProductsList = ({ eatenProducts }) => {
-	const eatenProductsList = useMemo(
-		() =>
-			eatenProducts &&
-			eatenProducts.map(eatenProduct => (
-				<DiaryProductsListItem key={eatenProduct.id} {...eatenProduct} />
-			)),
-		[eatenProducts],
-	);
+const DiaryProductsList = ({ eatenProducts, onRemoveProduct }) => (
+	<ProductWrap>
+		<TransitionGroup component="ul">
+			{eatenProducts.map(eatenProduct => (
+				<CSSTransition key={eatenProduct.id} timeout={250} classNames={slideTransition}>
+					<DiaryProductsListItem {...eatenProduct} onRemoveProduct={onRemoveProduct} />
+				</CSSTransition>
+			))}
+		</TransitionGroup>
+	</ProductWrap>
+);
 
-	return <div>{eatenProductsList}</div>;
+DiaryProductsList.propTypes = {
+	onRemoveProduct: PropTypes.func.isRequired,
 };
-
-DiaryProductsList.propTypes = {};
 
 export default DiaryProductsList;

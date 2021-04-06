@@ -12,11 +12,23 @@ import {} from './Diary.styles';
 
 const Diary = () => {
 	const [date, setDate] = useState(new Date().toLocaleDateString());
-
 	const { dayInfo } = dayHooks.useDayRate();
+
 	const getDayInfo = dayHooks.useDayRateAction(dayOperations.getDayInfo);
 
 	useEffect(() => getDayInfo({ date }), [getDayInfo, date]);
+
+	const removeProduct = dayHooks.useDayRateAction(dayOperations.removeDayProduct);
+
+	const handleRemoveProduct = ({ target: { id } }) => {
+		removeProduct({ dayId: dayInfo.id, eatenProductId: id });
+	};
+
+	const addProduct = dayHooks.useDayRateAction(dayOperations.addDayProduct);
+
+	const handleSubmit = ({ id, weight }) => {
+		addProduct({ productId: id, date, weight });
+	};
 
 	const eatenProducts = dayInfo?.eatenProducts;
 
@@ -24,9 +36,11 @@ const Diary = () => {
 		<div>
 			<DiaryDateCalendar date={date} onChangeDate={setDate} />
 
-			<DiaryAddProductForm />
+			<DiaryAddProductForm onSubmit={handleSubmit} />
 
-			{eatenProducts && <DiaryProductsList eatenProducts={eatenProducts} />}
+			{eatenProducts && (
+				<DiaryProductsList eatenProducts={eatenProducts} onRemoveProduct={handleRemoveProduct} />
+			)}
 		</div>
 	);
 };

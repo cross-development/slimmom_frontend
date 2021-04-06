@@ -15,6 +15,8 @@ export const StyledArticle = styled.main`
 	padding-left: 15px;
 	padding-right: 15px;
 
+	/* background: linear-gradient(180deg, #fff, #fff 562px, #f0f1f3 0, #f0f1f3); */
+
 	@media ${device.tablet} {
 		justify-content: flex-start;
 
@@ -22,6 +24,8 @@ export const StyledArticle = styled.main`
 
 		padding-left: 87px;
 		padding-right: 87px;
+
+		/* background: transparent; */
 	}
 
 	@media ${device.desktop} {
