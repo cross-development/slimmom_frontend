@@ -4,7 +4,9 @@ import { createReducer } from '@reduxjs/toolkit';
 //Redux
 import dayActions from './day.action';
 
-const dayInfo = createReducer(null, {});
+const dayInfo = createReducer(null, {
+	[dayActions.getDayInfoSuccess]: (state, { payload }) => payload,
+});
 
 const daySummary = createReducer(null, {});
 

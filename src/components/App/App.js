@@ -5,8 +5,7 @@ import { Switch } from 'react-router-dom';
 import Header from '../Header';
 import { Layout, Loader } from '../Commons';
 //Redux
-import { authOperations } from 'redux/auth';
-import { authHooks } from 'redux/auth';
+import { authHooks, authOperations } from 'redux/auth';
 //Routes
 import routes from 'router';
 import PublicRoute from 'router/PublicRoute';

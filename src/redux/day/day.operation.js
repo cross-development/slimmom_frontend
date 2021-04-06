@@ -21,11 +21,11 @@ const removeDayProduct = product => dispatch => {
 		.catch(error => dispatch(dayActions.removeProductFailure(error)));
 };
 
-const getDayInfo = date => dispatch => {
+const getDayInfo = ({ date }) => dispatch => {
 	dispatch(dayActions.getDayInfoRequest());
 
 	axios
-		.post('/api/day/info', date)
+		.post('/api/day/info', { date })
 		.then(({ data }) => dispatch(dayActions.getDayInfoSuccess(data)))
 		.catch(error => dispatch(dayActions.getDayInfoFailure(error)));
 };

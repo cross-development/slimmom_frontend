@@ -103,6 +103,8 @@ const Input = styled.input`
 	border: none;
 	border-bottom: 1px solid #e0e0e0;
 
+	background-color: transparent;
+
 	@media ${device.tablet} {
 		padding: 16px 5px;
 	}
