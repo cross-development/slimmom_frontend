@@ -1,30 +1,38 @@
 //Core
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-//Components
+//Packages
 import Calendar from 'react-calendar';
-//Styles
 import { CSSTransition } from 'react-transition-group';
-import {} from './DiaryDateСalendar.styles';
+import { FaRegCalendarAlt } from 'react-icons/fa';
+//Styles
+import { CalendarWrap, CalendarBtn, CalendarDate } from './DiaryDateСalendar.styles';
 import popTransition from 'styles/transitions/pop.module.css';
 import 'react-calendar/dist/Calendar.css';
 
 const DiaryDateCalendar = ({ onChangeDate, date }) => {
 	const [isShowCalendar, setIsShowCalendar] = useState(false);
 
+	const handleShowCalendar = () => setIsShowCalendar(!isShowCalendar);
+
 	return (
-		<div>
-			<button style={{ marginTop: '100px' }} onClick={() => setIsShowCalendar(!isShowCalendar)}>
-				asd
-			</button>
+		<CalendarWrap>
+			<CalendarDate>{date.toLocaleDateString('ua-UA')}</CalendarDate>
+
+			<CalendarBtn onClick={handleShowCalendar}>
+				<FaRegCalendarAlt />
+			</CalendarBtn>
 
 			<CSSTransition in={isShowCalendar} timeout={150} classNames={popTransition} unmountOnExit>
-				<Calendar onChange={onChangeDate} value={new Date(date)} />
+				<Calendar onChange={onChangeDate} value={date} onClickDay={handleShowCalendar} />
 			</CSSTransition>
-		</div>
+		</CalendarWrap>
 	);
 };
 
-DiaryDateCalendar.propTypes = {};
+DiaryDateCalendar.propTypes = {
+	onChangeDate: PropTypes.func.isRequired,
+	date: PropTypes.instanceOf(Date).isRequired,
+};
 
 export default DiaryDateCalendar;

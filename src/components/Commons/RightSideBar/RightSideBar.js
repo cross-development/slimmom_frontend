@@ -9,13 +9,16 @@ import { SummaryWrap, SummaryList, SummaryItem } from './RightSideBar.styles';
 import { ProductWrap, ProductList, ProductItem, ProductMessage } from './RightSideBar.styles';
 
 const RightSideBar = () => {
-	const { todaySummary } = authHooks.useGetUser();
-	const { userRate } = dailyHooks.useDailyRate();
+	const {
+		todaySummary,
+		user: { userData },
+	} = authHooks.useGetUser();
+	// const { userRate } = dailyHooks.useDailyRate();
 
 	const date = todaySummary.date ? todaySummary.date : new Date().toLocaleDateString();
 	const kcalLeft = todaySummary?.kcalLeft || '000';
 	const kcalConsumed = Math.floor(todaySummary?.kcalConsumed) || '000';
-	const dailyRate = userRate?.dailyRate || '000';
+	const dailyRate = userData?.dailyRate || '000';
 	const percentsOfDailyRate = todaySummary?.percentsOfDailyRate || '000';
 
 	return (
@@ -45,15 +48,15 @@ const RightSideBar = () => {
 			<ProductWrap>
 				<Title>Нерекомендуемые продукты</Title>
 
-				{userRate && (
+				{userData && (
 					<ProductList>
-						{userRate.notAllowedProducts.map((item, idx) => (
+						{userData.notAllowedProducts.map((item, idx) => (
 							<ProductItem key={`${item}${idx}`}>{item}</ProductItem>
 						))}
 					</ProductList>
 				)}
 
-				{!userRate && <ProductMessage>Здесь будет отображаться Ваш рацион</ProductMessage>}
+				{!userData && <ProductMessage>Здесь будет отображаться Ваш рацион</ProductMessage>}
 			</ProductWrap>
 		</Wrapper>
 	);

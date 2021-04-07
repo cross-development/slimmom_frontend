@@ -11,7 +11,7 @@ const PublicRoute = ({ component: Component, ...routeProps }) => {
 		<Route
 			{...routeProps}
 			render={props =>
-				user && routeProps.restricted ? <Redirect to="/calculator" /> : <Component {...props} />
+				user && routeProps.restricted ? <Redirect to="/diary" /> : <Component {...props} />
 			}
 		/>
 	);

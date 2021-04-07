@@ -1,20 +1,17 @@
 .enter {
-	opacity: 0;
-	transform: scale(0.6);
+	transform: scale(0);
 }
+
 .enterActive {
-	opacity: 1;
 	transform: scale(1);
+	transition: transform 250ms ease-in-out;
 }
+
 .exit {
-	opacity: 1;
 	transform: scale(1);
 }
+
 .exitActive {
-	opacity: 0;
-	transform: scale(0.6);
-}
-.exiDone {
-	opacity: 0;
-	transform: scale(0.6);
+	transform: scale(0);
+	transition: transform 250ms ease-in-out;
 }
