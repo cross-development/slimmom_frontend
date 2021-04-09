@@ -31,6 +31,11 @@ const AddButton = styled.button`
 
 	background: #fc842d;
 	box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);
+
+	&:focus {
+		outline: none;
+		box-shadow: 0px 4px 10px rgba(252, 132, 45, 1);
+	}
 `;
 
 export { AddBtnWrap, AddButton };

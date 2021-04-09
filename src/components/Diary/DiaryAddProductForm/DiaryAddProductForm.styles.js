@@ -3,7 +3,45 @@ import styled from 'styled-components';
 //Settings
 import { device } from 'styles/index.styles';
 
-const Form = styled.form``;
+const FormWrap = styled.div`
+	display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+
+	padding-left: 15px;
+	padding-right: 15px;
+
+	background-color: #fff;
+`;
+
+const GoBackBtn = styled.button`
+	border: none;
+	background-color: transparent;
+	width: 24px;
+	height: 24px;
+
+	position: absolute;
+	top: 8px;
+	left: 15px;
+	z-index: 10000;
+
+	&::before {
+		font-size: 18px;
+		content: '⮨';
+	}
+
+	@media ${device.tablet} {
+		display: none;
+	}
+`;
+
+const Form = styled.form`
+	margin-top: 110px;
+`;
 
 const Label = styled.label`
 	display: block;
@@ -67,6 +105,11 @@ const Button = styled.button`
 		font-size: 14px;
 	}
 
+	&:focus {
+		outline: none;
+		box-shadow: 0px 4px 10px rgba(252, 132, 45, 1);
+	}
+
 	@media ${device.tablet} {
 		padding: 0;
 
@@ -88,4 +131,4 @@ const Button = styled.button`
 	}
 `;
 
-export { Form, Label, Input, Message, BtnWrap, Button };
+export { FormWrap, Form, GoBackBtn, Label, Input, Message, BtnWrap, Button };

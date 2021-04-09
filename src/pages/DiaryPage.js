@@ -8,8 +8,12 @@ import { RightSideBar } from 'components/Commons';
 import { dayHooks, dayOperations } from 'redux/day';
 
 const DiaryPage = () => {
-	const [date, setDate] = useState(new Date());
 	const { dayInfo } = dayHooks.useDayRate();
+
+	const [date, setDate] = useState(new Date());
+	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const handleOpenModal = () => setIsModalOpen(prevState => !prevState);
 
 	const getDayInfo = dayHooks.useDayRateAction(dayOperations.getDayInfo);
 
@@ -35,13 +39,17 @@ const DiaryPage = () => {
 		<section>
 			<DiaryDateCalendar date={date} onChangeDate={setDate} />
 
-			<DiaryAddProductForm onSubmit={handleSubmit} />
+			<DiaryAddProductForm
+				isOpen={isModalOpen}
+				onSubmit={handleSubmit}
+				onCloseModal={handleOpenModal}
+			/>
 
 			{eatenProducts && (
 				<DiaryProductsList eatenProducts={eatenProducts} onRemoveProduct={handleRemoveProduct} />
 			)}
 
-			<DiaryAddButton />
+			<DiaryAddButton onShowModal={handleOpenModal} />
 
 			<RightSideBar />
 		</section>
