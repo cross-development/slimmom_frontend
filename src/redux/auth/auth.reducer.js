@@ -11,7 +11,7 @@ const user = createReducer(null, {
 	[authActions.userSighOutSuccess]: () => null,
 });
 
-const todaySummary = createReducer({}, {
+const todaySummary = createReducer(null, {
 	[authActions.userSignInSuccess]: (state, { payload }) => payload.todaySummary,
 });
 

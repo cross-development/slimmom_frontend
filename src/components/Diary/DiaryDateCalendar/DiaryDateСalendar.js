@@ -17,13 +17,13 @@ const DiaryDateCalendar = ({ onChangeDate, date }) => {
 
 	return (
 		<CalendarWrap>
-			<CalendarDate>{date.toLocaleDateString('ua-UA')}</CalendarDate>
+			<CalendarDate>{date.toLocaleDateString('us-US')}</CalendarDate>
 
 			<CalendarBtn onClick={handleShowCalendar}>
 				<FaRegCalendarAlt />
 			</CalendarBtn>
 
-			<CSSTransition in={isShowCalendar} timeout={150} classNames={popTransition} unmountOnExit>
+			<CSSTransition in={isShowCalendar} timeout={250} classNames={popTransition} unmountOnExit>
 				<Calendar onChange={onChangeDate} value={date} onClickDay={handleShowCalendar} />
 			</CSSTransition>
 		</CalendarWrap>

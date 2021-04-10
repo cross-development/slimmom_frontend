@@ -6,6 +6,7 @@ import productActions from './product.action';
 
 const items = createReducer([], {
 	[productActions.findProductsSuccess]: (state, { payload }) => payload,
+	[productActions.clearProductList]: (state, { payload }) => [],
 });
 
 const error = createReducer(null, {

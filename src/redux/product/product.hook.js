@@ -5,10 +5,10 @@ import {
 	getConnectedEmptyActionHook,
 } from 'services/reduxServices';
 
-const useProductsState = getConnectedStore('product');
-const useFindProductsAction = getConnectedActionHook();
-const useFindProductsEmptyAction = getConnectedEmptyActionHook();
+const useProductState = getConnectedStore('product');
+const useProductAction = getConnectedActionHook();
+const useProductEmptyAction = getConnectedEmptyActionHook();
 
-const productHooks = { useProductsState, useFindProductsAction, useFindProductsEmptyAction };
+const productHooks = { useProductState, useProductAction, useProductEmptyAction };
 
 export default productHooks;

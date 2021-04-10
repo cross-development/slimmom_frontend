@@ -5,10 +5,10 @@ import {
 	getConnectedEmptyActionHook,
 } from 'services/reduxServices';
 
-const useDayRate = getConnectedStore('day');
-const useDayRateAction = getConnectedActionHook();
-const useDayRateEmptyAction = getConnectedEmptyActionHook();
+const useDayInfo = getConnectedStore('day');
+const useDayInfoAction = getConnectedActionHook();
+const useDayInfoEmptyAction = getConnectedEmptyActionHook();
 
-const dayHooks = { useDayRate, useDayRateAction, useDayRateEmptyAction };
+const dayHooks = { useDayInfo, useDayInfoAction, useDayInfoEmptyAction };
 
 export default dayHooks;

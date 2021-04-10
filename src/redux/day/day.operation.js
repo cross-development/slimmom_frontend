@@ -25,7 +25,7 @@ const getDayInfo = ({ date }) => dispatch => {
 	dispatch(dayActions.getDayInfoRequest());
 
 	axios
-		.post('/api/day/info', { date })
+		.post('/api/day/info', { date: date.toLocaleDateString('us-US') })
 		.then(({ data }) => dispatch(dayActions.getDayInfoSuccess(data)))
 		.catch(error => dispatch(dayActions.getDayInfoFailure(error)));
 };

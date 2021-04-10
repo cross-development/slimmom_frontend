@@ -75,6 +75,35 @@ const Message = styled.span`
 	left: 0;
 `;
 
+const ProductListWrap = styled.div``;
+
+const ProductList = styled.ul`
+	max-height: 110px;
+	overflow-y: scroll;
+
+	&::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: #424242;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: #7a7e81;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		background: #9e9e9e;
+	}
+
+	@media ${device.desktop} {
+		max-height: 150px;
+	}
+`;
+
+const ProductItem = styled.li``;
+
 const BtnWrap = styled.div`
 	display: flex;
 	align-items: center;
@@ -131,4 +160,16 @@ const Button = styled.button`
 	}
 `;
 
-export { FormWrap, Form, GoBackBtn, Label, Input, Message, BtnWrap, Button };
+export {
+	FormWrap,
+	Form,
+	GoBackBtn,
+	Label,
+	Input,
+	Message,
+	ProductListWrap,
+	ProductList,
+	ProductItem,
+	BtnWrap,
+	Button,
+};

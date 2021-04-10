@@ -15,7 +15,7 @@ const RightSideBar = () => {
 	} = authHooks.useGetUser();
 	// const { userRate } = dailyHooks.useDailyRate();
 
-	const date = todaySummary.date ? todaySummary.date : new Date().toLocaleDateString();
+	const date = todaySummary?.date ? todaySummary.date : new Date().toLocaleDateString();
 	const kcalLeft = todaySummary?.kcalLeft || '000';
 	const kcalConsumed = Math.floor(todaySummary?.kcalConsumed) || '000';
 	const dailyRate = userData?.dailyRate || '000';

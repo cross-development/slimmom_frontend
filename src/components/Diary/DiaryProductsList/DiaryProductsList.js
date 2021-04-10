@@ -6,13 +6,13 @@ import DiaryProductsListItem from './DiaryProductsListItem';
 //Styles
 import { ProductWrap } from './DiaryProductsList.styles';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import slideTransition from 'styles/transitions/slide.module.css';
+import slideRightTransition from 'styles/transitions/slideRight.module.css';
 
 const DiaryProductsList = ({ eatenProducts, onRemoveProduct }) => (
 	<ProductWrap>
 		<TransitionGroup component="ul">
 			{eatenProducts.map(eatenProduct => (
-				<CSSTransition key={eatenProduct.id} timeout={250} classNames={slideTransition}>
+				<CSSTransition key={eatenProduct.id} timeout={250} classNames={slideRightTransition}>
 					<DiaryProductsListItem {...eatenProduct} onRemoveProduct={onRemoveProduct} />
 				</CSSTransition>
 			))}

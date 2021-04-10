@@ -12,6 +12,8 @@ const findProducts = ({ query }) => dispatch => {
 		.catch(error => dispatch(productActions.findProductsFailure(error)));
 };
 
-const productOperations = { findProducts };
+const clearProductList = () => dispatch => dispatch(productActions.clearProductList());
+
+const productOperations = { findProducts, clearProductList };
 
 export default productOperations;
