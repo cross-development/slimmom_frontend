@@ -7,7 +7,7 @@ import { dailyHooks } from 'redux/daily';
 import { dailyOperations } from 'redux/daily';
 
 const HomePage = () => {
-	const { guestRate } = dailyHooks.useDailyRate();
+	const { dailyRateInfo } = dailyHooks.useDailyRate();
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const handleGuestDailyRate = dailyHooks.useDailyRateAction(dailyOperations.guestDailyRate);
@@ -23,8 +23,8 @@ const HomePage = () => {
 		<section>
 			<DailyCaloriesForm onSubmit={handleSubmit} />
 
-			{isModalOpen && guestRate && (
-				<DailyCalorieIntake {...guestRate} onCloseModal={handleOpenModal} />
+			{isModalOpen && dailyRateInfo && (
+				<DailyCalorieIntake {...dailyRateInfo} onCloseModal={handleOpenModal} />
 			)}
 
 			<DailyCaloriePromo />

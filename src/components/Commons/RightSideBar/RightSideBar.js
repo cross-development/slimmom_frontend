@@ -2,7 +2,6 @@
 import React from 'react';
 //Redux
 import { authHooks } from 'redux/auth';
-import { dailyHooks } from 'redux/daily';
 //Styles
 import { Wrapper, Title } from './RightSideBar.styles';
 import { SummaryWrap, SummaryList, SummaryItem } from './RightSideBar.styles';
@@ -13,7 +12,6 @@ const RightSideBar = () => {
 		todaySummary,
 		user: { userData },
 	} = authHooks.useGetUser();
-	// const { userRate } = dailyHooks.useDailyRate();
 
 	const date = todaySummary?.date ? todaySummary.date : new Date().toLocaleDateString();
 	const kcalLeft = todaySummary?.kcalLeft || '000';

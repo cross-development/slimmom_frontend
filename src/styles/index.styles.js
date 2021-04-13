@@ -16,6 +16,10 @@ const GlobalStyle = createGlobalStyle`
         min-height: 100vh;
     }
 
+    section {
+        min-width: 100%;
+    }
+
     input {
         &::placeholder {
             font: inherit;

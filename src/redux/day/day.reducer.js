@@ -8,7 +8,9 @@ const dayInfo = createReducer(null, {
 	[dayActions.getDayInfoSuccess]: (state, { payload }) => payload,
 });
 
-const daySummary = createReducer(null, {});
+const daySummary = createReducer(null, {
+	[dayActions.addProductSuccess]: (state, { payload }) => payload,
+});
 
 const error = createReducer(null, {
 	[dayActions.addProductFailure]: (state, { payload }) => payload,
