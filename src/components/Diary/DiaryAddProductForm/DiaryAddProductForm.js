@@ -36,7 +36,7 @@ const DiaryAddProductForm = ({ isOpen, onSubmit, onCloseModal }) => {
 	const debouncedSearch = debounce(query => query.length > 2 && searchProduct({ query }), 400);
 	const handleChangeProduct = ({ target: { value } }) => debouncedSearch(value);
 
-	const handleFormSubmit = () => onSubmit({ productId: product._id, weight: product.weight });
+	const handleFormSubmit = () => onSubmit({ productId: product.id, weight: product.weight });
 
 	return (
 		<FormWrap isOpen={isOpen}>
@@ -59,7 +59,7 @@ const DiaryAddProductForm = ({ isOpen, onSubmit, onCloseModal }) => {
 					<ProductList>
 						{!!items.length &&
 							items.map(product => (
-								<ProductItem key={product._id} onClick={() => handleSelectProduct(product)}>
+								<ProductItem key={product.id} onClick={() => handleSelectProduct(product)}>
 									{product.title.ru}
 								</ProductItem>
 							))}

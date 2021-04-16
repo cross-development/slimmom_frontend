@@ -17,7 +17,7 @@ const Header = () => {
 		<HeaderWrap>
 			<Logo isAuth={Boolean(user)} />
 
-			<Border/>
+			<Border />
 
 			{user && <Navigation />}
 
