@@ -13,10 +13,6 @@ const userSighOutRequest = createAction('auth/userSighOutRequest');
 const userSighOutSuccess = createAction('auth/userSighOutSuccess');
 const userSighOutFailure = createAction('auth/userSighOutFailure');
 
-const getCurrentUserRequest = createAction('auth/getCurrentUserRequest');
-const getCurrentUserSuccess = createAction('auth/getCurrentUserSuccess');
-const getCurrentUserFailure = createAction('auth/getCurrentUserFailure');
-
 const unsetErrorMessage = createAction('auth/unsetErrorMessage');
 
 const authActions = {
@@ -31,10 +27,6 @@ const authActions = {
 	userSighOutRequest,
 	userSighOutSuccess,
 	userSighOutFailure,
-
-	getCurrentUserRequest,
-	getCurrentUserSuccess,
-	getCurrentUserFailure,
 
 	unsetErrorMessage,
 };

@@ -5,10 +5,10 @@ import {
 	getConnectedEmptyActionHook,
 } from 'services/reduxServices';
 
-const useGetUser = getConnectedStore('auth');
-const useUserAction = getConnectedActionHook();
-const useUserEmptyAction = getConnectedEmptyActionHook();
+const useGetAuth = getConnectedStore('auth');
+const useAuthAction = getConnectedActionHook();
+const useAuthEmptyAction = getConnectedEmptyActionHook();
 
-const authHooks = { useGetUser, useUserAction, useUserEmptyAction };
+const authHooks = { useGetAuth, useAuthAction, useAuthEmptyAction };
 
 export default authHooks;

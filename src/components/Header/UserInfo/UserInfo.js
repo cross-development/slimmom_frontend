@@ -2,19 +2,20 @@
 import React from 'react';
 //Redux
 import { authHooks, authOperations } from 'redux/auth';
+import { userHooks } from 'redux/user';
 //Styles
 import { UserInfoWrap, Border, UserName, SignOutLink } from './UserInfo.styles';
 
 const UserInfo = () => {
-	const { user } = authHooks.useGetUser();
+	const { userInfo } = userHooks.useGetUser();
 
-	const signOutUser = authHooks.useUserEmptyAction(authOperations.userSighOut);
+	const signOutUser = authHooks.useAuthEmptyAction(authOperations.userSighOut);
 
 	const handleSignOut = () => signOutUser();
 
 	return (
 		<UserInfoWrap>
-			<UserName>{user.username}</UserName>
+			<UserName>{userInfo.username}</UserName>
 
 			<Border />
 

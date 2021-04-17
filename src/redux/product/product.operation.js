@@ -4,8 +4,6 @@ import axios from 'axios';
 import productActions from './product.action';
 
 const findProducts = ({ query }) => dispatch => {
-	dispatch(productActions.findProductsRequest());
-
 	axios
 		.get(`/api/product?search=${query}`)
 		.then(({ data }) => dispatch(productActions.findProductsSuccess(data)))

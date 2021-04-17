@@ -5,34 +5,34 @@ import { DiaryAddProductForm, DiaryDateCalendar } from 'components/Diary';
 import { DiaryProductsList, DiaryAddButton } from 'components/Diary';
 import { RightSideBar } from 'components/Commons';
 //Redux
-import { dayHooks, dayOperations } from 'redux/day';
-import slideLeftTransition from 'styles/transitions/slideLeft.module.css';
+import { userHooks, userOperations } from 'redux/user';
 //Styles
 import { CSSTransition } from 'react-transition-group';
+import slideLeftTransition from 'styles/transitions/slideLeft.module.css';
 
 const DiaryPage = () => {
-	const { dayInfo } = dayHooks.useDayInfo();
+	const { dayInfo } = userHooks.useGetUser();
 
 	const [date, setDate] = useState(new Date());
 	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const handleOpenModal = () => setIsModalOpen(prevState => !prevState);
 
-	const getDayInfo = dayHooks.useDayInfoAction(dayOperations.getDayInfo);
+	const getDayInfo = userHooks.useUserAction(userOperations.getDayInfo);
 	useEffect(() => getDayInfo({ date }), [getDayInfo, date]);
 
-	const removeProduct = dayHooks.useDayInfoAction(dayOperations.removeDayProduct);
+	const removeProduct = userHooks.useUserAction(userOperations.removeDayProduct);
 	const handleRemoveProduct = ({ target: { id: eatenProductId } }) => {
-		removeProduct({ dayId: dayInfo.id, eatenProductId });
+		removeProduct({ dayId: dayInfo.dayId, eatenProductId });
 	};
 
-	const addProduct = dayHooks.useDayInfoAction(dayOperations.addDayProduct);
+	const addProduct = userHooks.useUserAction(userOperations.addDayProduct);
 	const handleSubmit = ({ productId, weight }) => {
 		addProduct({ productId, weight, date: date.toLocaleDateString('us-US') });
 		handleOpenModal();
 	};
 
-	const eatenProducts = dayInfo?.eatenProducts;
+	const eatenProducts = dayInfo?.eatenProducts || [];
 
 	return (
 		<section>
@@ -46,9 +46,7 @@ const DiaryPage = () => {
 				/>
 			</CSSTransition>
 
-			{eatenProducts && (
-				<DiaryProductsList eatenProducts={eatenProducts} onRemoveProduct={handleRemoveProduct} />
-			)}
+			<DiaryProductsList eatenProducts={eatenProducts} onRemoveProduct={handleRemoveProduct} />
 
 			<DiaryAddButton onShowModal={handleOpenModal} />
 

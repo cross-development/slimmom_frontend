@@ -4,8 +4,11 @@ import { createReducer } from '@reduxjs/toolkit';
 //Redux
 import dailyActions from './daily.action';
 
-const dailyRateInfo = createReducer(null, {
+const guestRate = createReducer(null, {
 	[dailyActions.guestDailySuccess]: (state, { payload }) => payload,
+});
+
+const userRate = createReducer(null, {
 	[dailyActions.userDailySuccess]: (state, { payload }) => payload,
 });
 
@@ -24,4 +27,4 @@ const loading = createReducer(false, {
 	[dailyActions.userDailyFailure]: () => false,
 });
 
-export default combineReducers({ dailyRateInfo, loading, error });
+export default combineReducers({ guestRate, userRate, loading, error });

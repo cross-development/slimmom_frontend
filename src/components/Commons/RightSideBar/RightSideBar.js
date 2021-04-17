@@ -1,7 +1,8 @@
 //Core
 import React from 'react';
 //Redux
-import { authHooks } from 'redux/auth';
+import { userHooks } from 'redux/user';
+import { dailyHooks } from 'redux/daily';
 //Styles
 import { Wrapper, Title } from './RightSideBar.styles';
 import { SummaryWrap, SummaryList, SummaryItem } from './RightSideBar.styles';
@@ -9,15 +10,19 @@ import { ProductWrap, ProductList, ProductItem, ProductMessage } from './RightSi
 
 const RightSideBar = () => {
 	const {
-		todaySummary,
-		user: { userData },
-	} = authHooks.useGetUser();
+		dayInfo,
+		userInfo: { userData },
+	} = userHooks.useGetUser();
 
-	const date = todaySummary?.date ? todaySummary.date : new Date().toLocaleDateString();
-	const kcalLeft = todaySummary?.kcalLeft || '000';
-	const kcalConsumed = Math.floor(todaySummary?.kcalConsumed) || '000';
-	const dailyRate = userData?.dailyRate || '000';
-	const percentsOfDailyRate = todaySummary?.percentsOfDailyRate || '000';
+	const { userRate } = dailyHooks.useDailyRate();
+
+	const date = dayInfo?.date || new Date().toLocaleDateString('us-US');
+	const kcalLeft = dayInfo?.kcalLeft || '000';
+	const kcalConsumed = dayInfo?.kcalConsumed || '000';
+	const dailyRate = userRate?.dailyRate || userData?.dailyRate || '000';
+	const percentsOfDailyRate = dayInfo?.percentsOfDailyRate || '000';
+
+	const notAllowedProducts = userRate?.notAllowedProducts || userData?.notAllowedProducts;
 
 	return (
 		<Wrapper>
@@ -46,18 +51,25 @@ const RightSideBar = () => {
 			<ProductWrap>
 				<Title>Нерекомендуемые продукты</Title>
 
-				{userData && (
+				{!!notAllowedProducts.length && (
 					<ProductList>
-						{userData.notAllowedProducts.map((item, idx) => (
+						{notAllowedProducts.map((item, idx) => (
 							<ProductItem key={`${item}${idx}`}>{item}</ProductItem>
 						))}
 					</ProductList>
 				)}
 
-				{!userData && <ProductMessage>Здесь будет отображаться Ваш рацион</ProductMessage>}
+				{!notAllowedProducts.length && (
+					<ProductMessage>Здесь будет отображаться Ваш рацион</ProductMessage>
+				)}
 			</ProductWrap>
 		</Wrapper>
 	);
 };
 
 export default RightSideBar;
+// const date = todaySummary?.date ? todaySummary.date : new Date().toLocaleDateString();
+// const kcalLeft = todaySummary?.kcalLeft || '000';
+// const kcalConsumed = Math.floor(todaySummary?.kcalConsumed) || '000';
+// const dailyRate = userData?.dailyRate || '000';
+// const percentsOfDailyRate = todaySummary?.percentsOfDailyRate || '000';

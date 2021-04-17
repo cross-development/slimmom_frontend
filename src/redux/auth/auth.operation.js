@@ -2,29 +2,18 @@
 import axios from 'axios';
 //Redux
 import authActions from './auth.action';
+//Services
+import authService from 'services/authService';
 
 //Axios defaults config
 axios.defaults.baseURL = `http://localhost:3001`;
-
-const token = {
-	set(token) {
-		axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-	},
-
-	unset() {
-		axios.defaults.headers.common.Authorization = '';
-	},
-};
 
 const userSignUp = ({ username, email, password }) => dispatch => {
 	dispatch(authActions.userSignUpRequest());
 
 	axios
 		.post('/api/auth/sign-up', { username, email, password })
-		.then(({ data }) => {
-			token.set(data.token);
-			dispatch(authActions.userSignUpSuccess(data));
-		})
+		.then(() => dispatch(authActions.userSignUpSuccess()))
 		.catch(error => dispatch(authActions.userSignUpFailure(error)));
 };
 
@@ -34,7 +23,7 @@ const userSignIn = ({ email, password }) => dispatch => {
 	axios
 		.post('/api/auth/sign-in', { email, password })
 		.then(({ data }) => {
-			token.set(data.token);
+			authService.set(data.token);
 			dispatch(authActions.userSignInSuccess(data));
 		})
 		.catch(error => dispatch(authActions.userSignInFailure(error)));
@@ -46,32 +35,16 @@ const userSighOut = () => dispatch => {
 	axios
 		.delete('/api/auth/sign-out')
 		.then(() => {
-			token.unset();
+			authService.unset();
 			dispatch(authActions.userSighOutSuccess());
 		})
 		.catch(error => dispatch(authActions.userSighOutFailure(error)));
-};
-
-const getCurrentUser = () => (dispatch, getState) => {
-	const state = getState();
-	const { token: existToken } = state.auth;
-
-	if (!existToken) return;
-
-	token.set(existToken);
-	dispatch(authActions.getCurrentUserRequest());
-
-	axios
-		.get('/api/users/current')
-		.then(({ data }) => dispatch(authActions.getCurrentUserSuccess(data)))
-		.catch(error => dispatch(authActions.getCurrentUserFailure(error)));
 };
 
 const authOperations = {
 	userSignUp,
 	userSignIn,
 	userSighOut,
-	getCurrentUser,
 };
 
 export default authOperations;

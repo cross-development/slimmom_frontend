@@ -6,22 +6,22 @@ import UserInfo from './UserInfo';
 import AuthInfo from './AuthInfo';
 import Navigation from './Navigation';
 //Redux
-import { authHooks } from 'redux/auth';
+import { userHooks } from 'redux/user';
 //Styles
 import { HeaderWrap, Border } from './Header.styles';
 
 const Header = () => {
-	const { user } = authHooks.useGetUser();
+	const { userInfo } = userHooks.useGetUser();
 
 	return (
 		<HeaderWrap>
-			<Logo isAuth={Boolean(user)} />
+			<Logo isAuth={Boolean(userInfo)} />
 
 			<Border />
 
-			{user && <Navigation />}
+			{userInfo && <Navigation />}
 
-			{user ? <UserInfo /> : <AuthInfo />}
+			{userInfo ? <UserInfo /> : <AuthInfo />}
 		</HeaderWrap>
 	);
 };

@@ -5,14 +5,14 @@ import { Switch } from 'react-router-dom';
 import Header from '../Header';
 import { Layout, Loader } from '../Commons';
 //Redux
-import { authHooks, authOperations } from 'redux/auth';
+import { userHooks, userOperations } from 'redux/user';
 //Routes
 import routes from 'router';
 import PublicRoute from 'router/PublicRoute';
 import PrivateRoute from 'router/PrivateRoute';
 
 const App = () => {
-	const getCurrentUser = authHooks.useUserEmptyAction(authOperations.getCurrentUser);
+	const getCurrentUser = userHooks.useUserEmptyAction(userOperations.getCurrentUser);
 
 	useEffect(() => getCurrentUser(), [getCurrentUser]);
 
@@ -38,7 +38,3 @@ const App = () => {
 };
 
 export default App;
-
-// const getCurrentUser = useUserEmptyAction(authOperations.getCurrentUser);
-
-// useEffect(() => getCurrentUser(), [getCurrentUser]);

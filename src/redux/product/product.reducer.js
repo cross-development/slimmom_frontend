@@ -13,10 +13,4 @@ const error = createReducer(null, {
 	[productActions.findProductsFailure]: (state, { payload }) => payload,
 });
 
-const loading = createReducer(false, {
-	[productActions.findProductsRequest]: () => true,
-	[productActions.findProductsSuccess]: () => false,
-	[productActions.findProductsFailure]: () => false,
-});
-
-export default combineReducers({ items, loading, error });
+export default combineReducers({ items, error });

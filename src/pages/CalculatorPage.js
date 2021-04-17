@@ -4,14 +4,13 @@ import React from 'react';
 import { CalculatorCaloriesForm } from 'components/Calculator';
 import { RightSideBar } from 'components/Commons';
 //Redux
-import { authHooks } from 'redux/auth';
-import { dailyHooks } from 'redux/daily';
-import { dailyOperations } from 'redux/daily';
+import { userHooks } from 'redux/user';
+import { dailyHooks, dailyOperations } from 'redux/daily';
 
 const CalculatorPage = () => {
 	const {
-		user: { userId },
-	} = authHooks.useGetUser();
+		userInfo: { userId },
+	} = userHooks.useGetUser();
 
 	const handleUserDailyRate = dailyHooks.useDailyRateAction(dailyOperations.userDailyRate);
 

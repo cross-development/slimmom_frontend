@@ -1,15 +1,21 @@
 //Core
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 //Components
 import { SignUp } from 'components/Auth';
 //Redux
-import { authHooks } from 'redux/auth';
-import { authOperations } from 'redux/auth';
+import { authHooks, authOperations } from 'redux/auth';
 
 const SignUpPage = () => {
-	const handleSignUp = authHooks.useUserAction(authOperations.userSignUp);
+	const history = useHistory();
 
-	const handleSubmit = credentials => handleSignUp({ ...credentials });
+	const handleSignUp = authHooks.useAuthAction(authOperations.userSignUp);
+
+	const handleSubmit = credentials => {
+		handleSignUp({ ...credentials });
+
+		history.replace('/sign-in');
+	};
 
 	return (
 		<section>

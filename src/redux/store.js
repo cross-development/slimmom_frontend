@@ -1,12 +1,14 @@
 //Core
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
-import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+//Redux middleware
+import { FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
+import logger from 'redux-logger';
 //Redux
 import { authReducers } from './auth';
+import { userReducers } from './user';
 import { dailyReducers } from './daily';
-import { dayReducers } from './day';
 import { productReducers } from './product';
 
 const authPersistConfig = {
@@ -18,8 +20,8 @@ const authPersistConfig = {
 export const store = configureStore({
 	reducer: {
 		auth: persistReducer(authPersistConfig, authReducers),
+		user: userReducers,
 		daily: dailyReducers,
-		day: dayReducers,
 		product: productReducers,
 	},
 
@@ -27,7 +29,7 @@ export const store = configureStore({
 		serializableCheck: {
 			ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
 		},
-	}),
+	}).concat(logger),
 });
 
 export const persistor = persistStore(store);
