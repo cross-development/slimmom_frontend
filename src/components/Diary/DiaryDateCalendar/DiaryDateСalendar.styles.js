@@ -8,7 +8,7 @@ const CalendarWrap = styled.div`
 
 	display: flex;
 
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	margin-top: 80px;
 
 	& .react-calendar {

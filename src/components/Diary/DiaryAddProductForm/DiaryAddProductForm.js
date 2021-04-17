@@ -15,7 +15,7 @@ import { Label, Input, Message, BtnWrap, Button } from './DiaryAddProductForm.st
 import { ProductListWrap, ProductList, ProductItem } from './DiaryAddProductForm.styles';
 
 const DiaryAddProductForm = ({ isOpen, onSubmit, onCloseModal }) => {
-	const { register, handleSubmit, setValue, errors } = useForm({
+	const { register, handleSubmit, setValue, getValues, errors } = useForm({
 		resolver: yupResolver(productSchema),
 	});
 
@@ -36,7 +36,7 @@ const DiaryAddProductForm = ({ isOpen, onSubmit, onCloseModal }) => {
 	const debouncedSearch = debounce(query => query.length > 2 && searchProduct({ query }), 400);
 	const handleChangeProduct = ({ target: { value } }) => debouncedSearch(value);
 
-	const handleFormSubmit = () => onSubmit({ productId: product.id, weight: product.weight });
+	const handleFormSubmit = () => onSubmit({ productId: product.id, weight: getValues('weight') });
 
 	return (
 		<FormWrap isOpen={isOpen}>

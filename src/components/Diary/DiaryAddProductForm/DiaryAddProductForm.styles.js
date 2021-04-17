@@ -46,9 +46,9 @@ const Form = styled.form`
 const Label = styled.label`
 	display: block;
 
-	margin-bottom: 20px;
-
-	position: relative;
+	&:last-of-type {
+		margin-top: 20px;
+	}
 `;
 
 const Input = styled.input`
@@ -75,7 +75,12 @@ const Message = styled.span`
 	left: 0;
 `;
 
-const ProductListWrap = styled.div``;
+const ProductListWrap = styled.div`
+	background: #f1f2f6;
+
+	position: absolute;
+	width: calc(100vw - 30px);
+`;
 
 const ProductList = styled.ul`
 	max-height: 110px;
@@ -102,7 +107,14 @@ const ProductList = styled.ul`
 	}
 `;
 
-const ProductItem = styled.li``;
+const ProductItem = styled.li`
+	transition: all 250ms linear;
+	cursor: pointer;
+
+	&:hover {
+		background-color: #a4b0be;
+	}
+`;
 
 const BtnWrap = styled.div`
 	display: flex;

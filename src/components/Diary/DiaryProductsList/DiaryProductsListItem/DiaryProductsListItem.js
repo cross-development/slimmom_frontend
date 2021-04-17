@@ -8,9 +8,13 @@ const DiaryProductsListItem = ({ id, title, weight, kcal, onRemoveProduct }) => 
 	<ListItem>
 		<Title>{title}</Title>
 
-		<Weight>{weight}</Weight>
+		<Weight>
+			{weight} <span>г</span>
+		</Weight>
 
-		<Kcal>{kcal}</Kcal>
+		<Kcal>
+			{kcal} <span>ккал</span>
+		</Kcal>
 
 		<RemoveBtn type="button" id={id} onClick={onRemoveProduct} />
 	</ListItem>
