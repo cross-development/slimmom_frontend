@@ -20,13 +20,15 @@ const Wrapper = styled.div`
 		justify-content: space-between;
 		align-items: stretch;
 
-		margin-top: 0;
-		padding: 90px 87px;
+		margin-top: 67px;
+		padding: 90px 20px;
+		/* padding: 90px 87px; */
 
-		position: absolute;
+/*  */
+		/* position: absolute;
 		left: 0;
 		bottom: 0;
-		right: 0;
+		right: 0; */
 
 		background-image: url(${layer1});
 		background-size: contain;
@@ -39,6 +41,7 @@ const Wrapper = styled.div`
 
 		padding: 295px 130px 160px 90px;
 
+		position: absolute;
 		top: 0;
 		bottom: 0;
 		right: 0;

@@ -1,5 +1,7 @@
 //Core
 import styled from 'styled-components';
+//Settings
+import { device } from 'styles/index.styles';
 
 const ListItem = styled.li`
 	color: #212121;
@@ -10,8 +12,18 @@ const ListItem = styled.li`
 	display: flex;
 	align-items: flex-end;
 
+	margin-right: 8px;
+
 	&:not(:first-child) {
 		margin-top: 20px;
+	}
+
+	@media ${device.tablet} {
+		margin-right: 30px;
+
+		&:not(:first-child) {
+			margin-top: 15px;
+		}
 	}
 `;
 
@@ -30,6 +42,10 @@ const Title = styled.p`
 	flex: 3 1;
 
 	${itemBorder}
+
+	@media ${device.tablet} {
+		margin-right: 30px;
+	}
 `;
 
 const Weight = styled.p`
@@ -45,6 +61,16 @@ const Weight = styled.p`
 	& span {
 		font-size: 12px;
 	}
+
+	@media ${device.tablet} {
+		text-align: right;
+
+		margin-right: 30px;
+
+		& span {
+			font-size: 14px;
+		}
+	}
 `;
 
 const Kcal = styled.p`
@@ -52,11 +78,22 @@ const Kcal = styled.p`
 
 	margin-right: 10px;
 	flex: 1 1;
+	flex: 0 0 15%;
 
 	${itemBorder}
 
 	& span {
 		font-size: 10px;
+	}
+
+	@media ${device.tablet} {
+		text-align: right;
+
+		margin-right: 30px;
+
+		& span {
+			font-size: 14px;
+		}
 	}
 `;
 
@@ -64,12 +101,26 @@ const RemoveBtn = styled.button`
 	color: #9b9faa;
 	background-color: transparent;
 	border: none;
-	margin-right: 8px;
 	margin-bottom: 10px;
+	width: 20px;
+	height: 20px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
 	&::before {
 		content: '×';
 		font-size: 20px;
+	}
+
+	@media ${device.tablet} {
+		width: 25px;
+		height: 25px;
+
+		&::before {
+			font-size: 30px;
+		}
 	}
 `;
 

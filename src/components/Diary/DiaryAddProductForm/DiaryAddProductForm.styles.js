@@ -16,6 +16,16 @@ const FormWrap = styled.div`
 	padding-right: 15px;
 
 	background-color: #fff;
+
+	@media ${device.tablet} {
+		display: block;
+
+		position: static;
+
+		padding-left: 0;
+		padding-right: 0;
+		margin-bottom: 50px;
+	}
 `;
 
 const GoBackBtn = styled.button`
@@ -41,6 +51,15 @@ const GoBackBtn = styled.button`
 
 const Form = styled.form`
 	margin-top: 110px;
+
+	@media ${device.tablet} {
+		margin-top: 0;
+
+		position: relative;
+
+		display: flex;
+		justify-content: flex-start;
+	}
 `;
 
 const Label = styled.label`
@@ -48,6 +67,17 @@ const Label = styled.label`
 
 	&:last-of-type {
 		margin-top: 20px;
+	}
+
+	@media ${device.tablet} {
+		margin-right: 30px;
+		flex: 0 0 45%;
+
+		&:last-of-type {
+			margin-top: 0;
+			margin-right: 48px;
+			flex: 0 0 15%;
+		}
 	}
 `;
 
@@ -80,6 +110,14 @@ const ProductListWrap = styled.div`
 
 	position: absolute;
 	width: calc(100vw - 30px);
+
+	@media ${device.tablet} {
+		width: 45%;
+
+		z-index: 100;
+		left: 0;
+		top: 45px;
+	}
 `;
 
 const ProductList = styled.ul`
@@ -122,6 +160,12 @@ const BtnWrap = styled.div`
 	flex-direction: column;
 
 	margin-top: 60px;
+
+	@media ${device.tablet} {
+		margin-top: 0;
+
+		margin-right: auto;
+	}
 `;
 
 const Button = styled.button`

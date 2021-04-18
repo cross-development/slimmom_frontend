@@ -217,7 +217,7 @@ const BtnGroup = styled.div`
 	margin-top: 35px;
 
 	@media ${device.tablet} {
-		margin-top: 60px;
+		margin-top: 65px;
 	}
 
 	@media ${device.desktop} {

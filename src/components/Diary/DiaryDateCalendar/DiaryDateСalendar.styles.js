@@ -22,6 +22,14 @@ const CalendarWrap = styled.div`
 
 	@media ${device.tablet} {
 		margin-top: 100px;
+		margin-bottom: 60px;
+
+		align-items: center;
+
+		& .react-calendar {
+			width: 300px;
+			top: 45px;
+		}
 	}
 
 	@media ${device.desktop} {
@@ -39,6 +47,12 @@ const CalendarDate = styled.p`
 	font-weight: bold;
 
 	margin-right: 20px;
+
+	@media ${device.tablet} {
+		font-size: 34px;
+		line-height: 41px;
+		font-weight: bold;
+	}
 `;
 
 const CalendarBtn = styled.button`
@@ -51,6 +65,13 @@ const CalendarBtn = styled.button`
 	border: none;
 
 	background-color: transparent;
+
+	@media ${device.tablet} {
+		font-size: 25px;
+
+		width: 25px;
+		height: 25px;
+	}
 `;
 
 export { CalendarBtn, CalendarWrap, CalendarDate };

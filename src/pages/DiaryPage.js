@@ -6,9 +6,6 @@ import { DiaryProductsList, DiaryAddButton } from 'components/Diary';
 import { RightSideBar } from 'components/Commons';
 //Redux
 import { userHooks, userOperations } from 'redux/user';
-//Styles
-import { CSSTransition } from 'react-transition-group';
-import slideLeftTransition from 'styles/transitions/slideLeft.module.css';
 
 const DiaryPage = () => {
 	const { dayInfo } = userHooks.useGetUser();
@@ -38,13 +35,11 @@ const DiaryPage = () => {
 		<section>
 			<DiaryDateCalendar date={date} onChangeDate={setDate} />
 
-			<CSSTransition in={isModalOpen} timeout={200} classNames={slideLeftTransition} unmountOnExit>
-				<DiaryAddProductForm
-					isOpen={isModalOpen}
-					onSubmit={handleSubmit}
-					onCloseModal={handleOpenModal}
-				/>
-			</CSSTransition>
+			<DiaryAddProductForm
+				isOpen={isModalOpen}
+				onSubmit={handleSubmit}
+				onCloseModal={handleOpenModal}
+			/>
 
 			<DiaryProductsList eatenProducts={eatenProducts} onRemoveProduct={handleRemoveProduct} />
 
