@@ -22,6 +22,18 @@ const Form = styled.form`
 
 		display: flex;
 		flex-direction: column;
+
+		max-width: 65%;
+	}
+
+	@media ${device.desktop} {
+		margin-top: 132px;
+
+		max-width: 35%;
+	}
+
+	@media ${device.large} {
+		max-width: 30%;
 	}
 `;
 
@@ -84,6 +96,10 @@ const BtnGroup = styled.div`
 		justify-content: space-between;
 
 		margin-top: 40px;
+	}
+
+	@media ${device.desktop} {
+		margin-top: 60px;
 	}
 `;
 

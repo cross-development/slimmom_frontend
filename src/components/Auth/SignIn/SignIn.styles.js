@@ -22,6 +22,16 @@ const Form = styled.form`
 
 		display: flex;
 		flex-direction: column;
+
+		max-width: 65%;
+	}
+
+	@media ${device.desktop} {
+		max-width: 35%;
+	}
+
+	@media ${device.large} {
+		max-width: 30%;
 	}
 `;
 
