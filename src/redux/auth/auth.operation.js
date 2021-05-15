@@ -6,7 +6,7 @@ import authActions from './auth.action';
 import authService from 'services/authService';
 
 //Axios defaults config
-axios.defaults.baseURL = `http://localhost:3001`;
+axios.defaults.baseURL = `https://slimmom-dvs-backend.herokuapp.com`;
 
 const userSignUp = ({ username, email, password }) => dispatch => {
 	dispatch(authActions.userSignUpRequest());
