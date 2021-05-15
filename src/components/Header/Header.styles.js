@@ -28,6 +28,10 @@ const HeaderWrap = styled.header`
 
 		background-color: transparent;
 	}
+
+	@media ${device.large} {
+		padding: 30px 90px 10px;
+	}
 `;
 
 const Border = styled.div`

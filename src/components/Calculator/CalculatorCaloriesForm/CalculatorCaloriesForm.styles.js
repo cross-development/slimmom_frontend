@@ -13,13 +13,11 @@ const DailyWrapper = styled.div`
 	@media ${device.desktop} {
 		margin-top: 137px;
 
-		width: 80%;
+		width: 59%;
 	}
 
 	@media ${device.large} {
-		margin-top: 137px;
-
-		width: 100%;
+		margin-top: 100px;
 	}
 `;
 

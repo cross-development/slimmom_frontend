@@ -1,7 +1,5 @@
 //Core
 import styled from 'styled-components';
-//Settings
-import { device } from 'styles/index.styles';
 
 const MenuButton = styled.button`
 	display: block;
@@ -21,10 +19,12 @@ const MenuButton = styled.button`
 			transform: rotate(45deg) translate(7px, 7px);
 			width: 20px;
 		}
+
 		span:nth-of-type(2) {
 			opacity: 0;
 			pointer-events: none;
 		}
+
 		span:nth-of-type(3) {
 			transform: rotate(-45deg) translate(6px, -6px);
 			width: 20px;

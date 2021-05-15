@@ -15,6 +15,10 @@ const DailyWrapper = styled.div`
 
 		width: 55%;
 	}
+
+	@media ${device.large} {
+		margin-top: 85px;
+	}
 `;
 
 const Form = styled.form`

@@ -26,6 +26,14 @@ const FormWrap = styled.div`
 		padding-right: 0;
 		margin-bottom: 50px;
 	}
+
+	@media ${device.desktop} {
+		width: 62%;
+	}
+
+	@media ${device.large} {
+		width: 82%;
+	}
 `;
 
 const GoBackBtn = styled.button`
@@ -73,6 +81,8 @@ const Label = styled.label`
 		margin-right: 30px;
 		flex: 0 0 45%;
 
+		position: relative;
+
 		&:last-of-type {
 			margin-top: 0;
 			margin-right: 48px;
@@ -101,7 +111,7 @@ const Message = styled.span`
 	font-size: 12px;
 
 	position: absolute;
-	bottom: -14px;
+	top: 42px;
 	left: 0;
 `;
 
@@ -181,6 +191,8 @@ const Button = styled.button`
 
 	border-radius: 30px;
 	border: none;
+	cursor: pointer;
+	transition: all 250ms linear;
 
 	background: #fc842d;
 	box-shadow: 0px 4px 10px rgba(252, 132, 45, 0.5);

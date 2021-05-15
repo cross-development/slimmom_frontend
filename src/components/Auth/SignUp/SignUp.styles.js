@@ -133,9 +133,6 @@ const Button = styled.button`
 			margin-right: 30px;
 		}
 	}
-
-	@media ${device.desktop} {
-	}
 `;
 
 const SignUpLink = styled(Link)`

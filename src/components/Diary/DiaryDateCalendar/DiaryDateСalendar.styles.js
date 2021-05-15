@@ -37,6 +37,7 @@ const CalendarWrap = styled.div`
 	}
 
 	@media ${device.large} {
+		margin-top: 90px;
 	}
 `;
 
@@ -63,8 +64,14 @@ const CalendarBtn = styled.button`
 	width: 20px;
 	height: 20px;
 	border: none;
+	cursor: pointer;
+	transition: all 250ms linear;
 
 	background-color: transparent;
+
+	&:hover {
+		color: #424242;
+	}
 
 	@media ${device.tablet} {
 		font-size: 25px;

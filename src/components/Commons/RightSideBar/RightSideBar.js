@@ -1,10 +1,12 @@
 //Core
 import React from 'react';
+//Components
+import Container from '../Container';
 //Redux
 import { userHooks } from 'redux/user';
 import { dailyHooks } from 'redux/daily';
 //Styles
-import { Wrapper, Title } from './RightSideBar.styles';
+import { Background, Wrapper, Title } from './RightSideBar.styles';
 import { SummaryWrap, SummaryList, SummaryItem } from './RightSideBar.styles';
 import { ProductWrap, ProductList, ProductItem, ProductMessage } from './RightSideBar.styles';
 
@@ -25,51 +27,50 @@ const RightSideBar = () => {
 	const notAllowedProducts = userRate?.notAllowedProducts || userData?.notAllowedProducts;
 
 	return (
-		<Wrapper>
-			<SummaryWrap>
-				<Title>Сводка за {date}</Title>
+		<Background>
+			<Container>
+				<Wrapper>
+					<SummaryWrap>
+						<Title>Сводка за {date}</Title>
 
-				<SummaryList>
-					<SummaryItem>
-						Осталось <span>{kcalLeft} ккал</span>
-					</SummaryItem>
+						<SummaryList>
+							<SummaryItem>
+								Осталось <span>{kcalLeft} ккал</span>
+							</SummaryItem>
 
-					<SummaryItem>
-						Употреблено <span>{kcalConsumed} ккал</span>
-					</SummaryItem>
+							<SummaryItem>
+								Употреблено <span>{kcalConsumed} ккал</span>
+							</SummaryItem>
 
-					<SummaryItem>
-						Дневная норма <span>{dailyRate} ккал</span>
-					</SummaryItem>
+							<SummaryItem>
+								Дневная норма <span>{dailyRate} ккал</span>
+							</SummaryItem>
 
-					<SummaryItem>
-						n% от нормы <span>{percentsOfDailyRate} %</span>
-					</SummaryItem>
-				</SummaryList>
-			</SummaryWrap>
+							<SummaryItem>
+								n% от нормы <span>{percentsOfDailyRate} %</span>
+							</SummaryItem>
+						</SummaryList>
+					</SummaryWrap>
 
-			<ProductWrap>
-				<Title>Нерекомендуемые продукты</Title>
+					<ProductWrap>
+						<Title>Нерекомендуемые продукты</Title>
 
-				{!!notAllowedProducts.length && (
-					<ProductList>
-						{notAllowedProducts.map((item, idx) => (
-							<ProductItem key={`${item}${idx}`}>{item}</ProductItem>
-						))}
-					</ProductList>
-				)}
+						{!!notAllowedProducts.length && (
+							<ProductList>
+								{notAllowedProducts.map((item, idx) => (
+									<ProductItem key={`${item}${idx}`}>{item}</ProductItem>
+								))}
+							</ProductList>
+						)}
 
-				{!notAllowedProducts.length && (
-					<ProductMessage>Здесь будет отображаться Ваш рацион</ProductMessage>
-				)}
-			</ProductWrap>
-		</Wrapper>
+						{!notAllowedProducts.length && (
+							<ProductMessage>Здесь будет отображаться Ваш рацион</ProductMessage>
+						)}
+					</ProductWrap>
+				</Wrapper>
+			</Container>
+		</Background>
 	);
 };
 
 export default RightSideBar;
-// const date = todaySummary?.date ? todaySummary.date : new Date().toLocaleDateString();
-// const kcalLeft = todaySummary?.kcalLeft || '000';
-// const kcalConsumed = Math.floor(todaySummary?.kcalConsumed) || '000';
-// const dailyRate = userData?.dailyRate || '000';
-// const percentsOfDailyRate = todaySummary?.percentsOfDailyRate || '000';

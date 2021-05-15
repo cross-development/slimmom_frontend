@@ -40,6 +40,14 @@ const ProductWrap = styled.div`
 			height: 240px;
 		}
 	}
+
+	@media ${device.desktop} {
+		width: 57%;
+	}
+
+	@media ${device.large} {
+		width: 66%;
+	}
 `;
 
 export { ProductWrap };

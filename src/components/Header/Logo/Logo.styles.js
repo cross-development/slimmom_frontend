@@ -14,9 +14,6 @@ const LogoLink = styled(Link)`
 	display: flex;
 	align-items: center;
 
-	@media ${device.tablet} {
-	}
-
 	@media ${device.desktop} {
 		align-items: flex-end;
 	}

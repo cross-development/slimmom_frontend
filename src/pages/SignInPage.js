@@ -2,6 +2,7 @@
 import React from 'react';
 //Components
 import { SignIn } from 'components/Auth';
+import { Container } from 'components/Commons';
 //Redux
 import { authHooks, authOperations } from 'redux/auth';
 
@@ -12,7 +13,9 @@ const SignInPage = () => {
 
 	return (
 		<section>
-			<SignIn onSubmit={handleSubmit} />
+			<Container>
+				<SignIn onSubmit={handleSubmit} />
+			</Container>
 		</section>
 	);
 };

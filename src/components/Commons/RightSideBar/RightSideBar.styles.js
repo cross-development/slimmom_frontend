@@ -6,14 +6,20 @@ import layer5 from 'assets/img/layer5.png';
 //Settings
 import { device } from 'styles/index.styles';
 
+const Background = styled.div`
+	background-color: #f0f1f3;
+
+	@media ${device.desktop} {
+		background-color: transparent;
+	}
+`;
+
 const Wrapper = styled.div`
 	display: flex;
 	flex-direction: column;
 
 	margin-top: 60px;
 	padding: 40px 0 24px;
-
-	background-color: #f0f1f3;
 
 	@media ${device.tablet} {
 		flex-direction: row;
@@ -22,13 +28,6 @@ const Wrapper = styled.div`
 
 		margin-top: 67px;
 		padding: 90px 20px;
-		/* padding: 90px 87px; */
-
-/*  */
-		/* position: absolute;
-		left: 0;
-		bottom: 0;
-		right: 0; */
 
 		background-image: url(${layer1});
 		background-size: contain;
@@ -40,6 +39,7 @@ const Wrapper = styled.div`
 		flex-direction: column;
 
 		padding: 295px 130px 160px 90px;
+		margin-top: 0;
 
 		position: absolute;
 		top: 0;
@@ -47,13 +47,14 @@ const Wrapper = styled.div`
 		right: 0;
 		left: 58%;
 
+		background-color: #f0f1f3;
 		background-image: url(${layer5});
 	}
 
 	@media ${device.large} {
 		left: 65%;
 
-		padding: 295px 160px 160px 90px;
+		padding: 228px 160px 110px 90px;
 	}
 `;
 
@@ -140,6 +141,7 @@ const ProductMessage = styled.p`
 `;
 
 export {
+	Background,
 	Wrapper,
 	Title,
 	SummaryWrap,

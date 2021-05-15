@@ -3,6 +3,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 //Components
 import { SignUp } from 'components/Auth';
+import { Container } from 'components/Commons';
 //Redux
 import { authHooks, authOperations } from 'redux/auth';
 
@@ -19,7 +20,9 @@ const SignUpPage = () => {
 
 	return (
 		<section>
-			<SignUp onSubmit={handleSubmit} />
+			<Container>
+				<SignUp onSubmit={handleSubmit} />
+			</Container>
 		</section>
 	);
 };

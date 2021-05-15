@@ -109,9 +109,16 @@ const RemoveBtn = styled.button`
 	align-items: center;
 	justify-content: center;
 
+	cursor: pointer;
+	transition: all 250ms linear;
+
 	&::before {
 		content: '×';
 		font-size: 20px;
+	}
+
+	&:hover {
+		color: #424242;
 	}
 
 	@media ${device.tablet} {

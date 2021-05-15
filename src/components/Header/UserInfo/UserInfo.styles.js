@@ -14,7 +14,6 @@ const UserInfoWrap = styled.div`
 	width: 100%;
 	height: 40px;
 	top: 85px;
-	/* bottom: -42px; */
 	left: 0;
 	right: 0;
 	z-index: 100;

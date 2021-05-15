@@ -1,6 +1,20 @@
 //Core
 import { createGlobalStyle } from 'styled-components';
 
+export const size = {
+	mobile: '320px',
+	tablet: '768px',
+	desktop: '1280px',
+	large: '1440px',
+};
+
+export const device = {
+	mobile: `screen and (min-width: ${size.mobile})`,
+	tablet: `screen and (min-width: ${size.tablet})`,
+	desktop: `screen and (min-width: ${size.desktop})`,
+	large: `screen and (min-width: ${size.large})`,
+};
+
 const GlobalStyle = createGlobalStyle`
     *,
     *::before,
@@ -17,10 +31,13 @@ const GlobalStyle = createGlobalStyle`
     }
 
     section {
-        width: 100%
+        width: 100%;
+        background-color: transparent;
     }
 
     input {
+        background-color: transparent;
+
         &::placeholder {
             font: inherit;
             color: #9B9FAA;
@@ -75,19 +92,5 @@ const GlobalStyle = createGlobalStyle`
         list-style: none;
     }
 `;
-
-export const size = {
-	mobile: '320px',
-	tablet: '768px',
-	desktop: '1280px',
-	large: '1440px',
-};
-
-export const device = {
-	mobile: `screen and (min-width: ${size.mobile})`,
-	tablet: `screen and (min-width: ${size.tablet})`,
-	desktop: `screen and (min-width: ${size.desktop})`,
-	large: `screen and (min-width: ${size.large})`,
-};
 
 export default GlobalStyle;

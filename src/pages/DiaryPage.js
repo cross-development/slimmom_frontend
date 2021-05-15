@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 //Components
 import { DiaryAddProductForm, DiaryDateCalendar } from 'components/Diary';
 import { DiaryProductsList, DiaryAddButton } from 'components/Diary';
-import { RightSideBar } from 'components/Commons';
+import { RightSideBar, Container } from 'components/Commons';
 //Redux
 import { userHooks, userOperations } from 'redux/user';
 
@@ -33,17 +33,19 @@ const DiaryPage = () => {
 
 	return (
 		<section>
-			<DiaryDateCalendar date={date} onChangeDate={setDate} />
+			<Container>
+				<DiaryDateCalendar date={date} onChangeDate={setDate} />
 
-			<DiaryAddProductForm
-				isOpen={isModalOpen}
-				onSubmit={handleSubmit}
-				onCloseModal={handleOpenModal}
-			/>
+				<DiaryAddProductForm
+					isOpen={isModalOpen}
+					onSubmit={handleSubmit}
+					onCloseModal={handleOpenModal}
+				/>
 
-			<DiaryProductsList eatenProducts={eatenProducts} onRemoveProduct={handleRemoveProduct} />
+				<DiaryProductsList eatenProducts={eatenProducts} onRemoveProduct={handleRemoveProduct} />
 
-			<DiaryAddButton onShowModal={handleOpenModal} />
+				<DiaryAddButton onShowModal={handleOpenModal} />
+			</Container>
 
 			<RightSideBar />
 		</section>
